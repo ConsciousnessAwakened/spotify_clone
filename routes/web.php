@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/callback', function () {
-    return view('welcome');
+    return "Returned";
 });
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return inertia('Sample/Feature');
 });
+
