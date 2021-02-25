@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scaffoldDark {
+    border: 1px solid black;
+}
+
+.scaffoldLight {
+    border: 1px solid yellow;
+}
