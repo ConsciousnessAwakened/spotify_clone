@@ -1,3 +1,6 @@
+
+const colors = require('tailwindcss/colors')
+
 module.exports = {
     purge: [
         './resources/**/*.blade.php',
@@ -13,6 +16,15 @@ module.exports = {
                 sans : ['Inter', 'Roboto']
             }
         },
+        colors: {
+            ...colors,
+            codeBlue : {
+                primary : '#76b8f1',
+                primaryTrans : 'rgba(118, 184, 241, 0.5)',
+                lightTrans : 'rgba(181,197,221,0.5)',
+                secondary : '#f2f2f2'
+            }
+        }
     },
 
     variants: {

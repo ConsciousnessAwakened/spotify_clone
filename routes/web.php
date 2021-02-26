@@ -12,12 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/callback', function () {
     return "Returned";
 });
 
 Route::get('/', function () {
 
-    return inertia('Sample/Feature');
+    return inertia('Layouts/App');
 });
 
