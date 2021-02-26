@@ -18,6 +18,6 @@ Route::get('/callback', function () {
 
 Route::get('/', function () {
 
-    return inertia('Sample/Feature');
+    return inertia('Pages/Sample/Feature');
 });
 

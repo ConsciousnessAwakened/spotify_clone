@@ -13,7 +13,7 @@ new Vue({
     render: h => h(InertiaApp, {
         props: {
             initialPage: JSON.parse(document.getElementById('app').dataset.page),
-            resolveComponent: name => require(`./components/Pages/${name}`).default
+            resolveComponent: name => require(`./components/${name}`).default
         },
     })
 });
