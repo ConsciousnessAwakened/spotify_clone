@@ -7,7 +7,7 @@
         leave-class="opacity-100"
         leave-to-class="opacity-0">
         <div v-if="processing" class="cubeContainer absolute z-50 h-full w-full flex items-center justify-center">
-            <div class="cube rounded-full">
+            <div class="cube">
                 <div class="sides">
                     <div class="top bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="right bg-gradient-to-r from-codeBlue-primaryTrans"></div>
@@ -44,15 +44,9 @@ $size: 150px;
 }
 
 @keyframes rotate {
-    0% {
-        transform: rotateX(-37.5deg) rotateY(45deg);
-    }
-    50% {
-        transform: rotateX(-37.5deg) rotateY(605deg);
-    }
-    100% {
-        transform: rotateX(-37.5deg) rotateY(405deg);
-    }
+    0%      { transform: rotateX(-37.5deg) rotateY(45deg); }
+    50%     { transform: rotateX(-37.5deg) rotateY(605deg); }
+    100%    { transform: rotateX(-37.5deg) rotateY(405deg); }
 }
 
 .cube, .cube * {
