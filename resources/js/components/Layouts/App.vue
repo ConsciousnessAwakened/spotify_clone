@@ -1,19 +1,19 @@
 <template>
     <div>
-        <cube :processing="page.processing"/>
-        <feature/>
+        <warping-cube :processing="page.processing"/>
+        <feature />
     </div>
 </template>
 
 <script>
 import Feature from "../Pages/Sample/Feature";
-import Cube from "../Loaders/Cube";
+import WarpingCube from "../Loaders/WarpingCube";
 
 export default {
     name: "App",
 
     components: {
-        Cube,
+        WarpingCube,
         Feature
     },
 
