@@ -8,36 +8,36 @@
         leave-to-class="opacity-0">
         <div v-if="processing" class="cubeContainer absolute z-50 h-full w-full flex items-center justify-center">
             <div class="cube">
-                <div class="sides scaffoldDark">
-                    <div class="top bg-gradient-to-r from-codeBlue-primaryTrans">Top</div>
-                    <div class="topMirror1 bg-gradient-to-r from-codeBlue-primaryTrans">Top Mirror1</div>
-                    <div class="topMirror2 bg-gradient-to-r from-codeBlue-primaryTrans">Top Mirror2</div>
-                    <div class="topMirror3 bg-gradient-to-r from-codeBlue-primaryTrans">Top Mirror3</div>
+                <div class="sides">
+                    <div class="top bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="topMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="topMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="topMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
 
-                    <div class="right bg-gradient-to-r from-codeBlue-primaryTrans">Right</div>
-                    <div class="rightMirror1 bg-gradient-to-r from-codeBlue-primaryTrans">Right Mirror1</div>
-                    <div class="rightMirror2 bg-gradient-to-r from-codeBlue-primaryTrans">Right Mirror2</div>
-                    <div class="rightMirror3 bg-gradient-to-r from-codeBlue-primaryTrans">Right Mirror3</div>
+                    <div class="right bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="rightMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="rightMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="rightMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
 
-                    <div class="left bg-gradient-to-r from-codeBlue-primaryTrans">Left</div>
-                    <div class="leftMirror1 bg-gradient-to-r from-codeBlue-primaryTrans">Left Mirror1</div>
-                    <div class="leftMirror2 bg-gradient-to-r from-codeBlue-primaryTrans">Left Mirror2</div>
-                    <div class="leftMirror3 bg-gradient-to-r from-codeBlue-primaryTrans">Left Mirror3</div>
+                    <div class="left bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="leftMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="leftMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="leftMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
 
-                    <div class="front bg-gradient-to-r from-codeBlue-primaryTrans">Front</div>
-                    <div class="frontMirror1 bg-gradient-to-r from-codeBlue-primaryTrans">Front Mirror1</div>
-                    <div class="frontMirror2 bg-gradient-to-r from-codeBlue-primaryTrans">Front Mirror2</div>
-                    <div class="frontMirror3 bg-gradient-to-r from-codeBlue-primaryTrans">Front Mirror3</div>
+                    <div class="front bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="frontMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="frontMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="frontMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
 
-                    <div class="back bg-gradient-to-r from-codeBlue-primaryTrans">Back</div>
-                    <div class="backMirror1 bg-gradient-to-r from-codeBlue-primaryTrans">Back Mirror1</div>
-                    <div class="backMirror2 bg-gradient-to-r from-codeBlue-primaryTrans">Back Mirror2</div>
-                    <div class="backMirror3 bg-gradient-to-r from-codeBlue-primaryTrans">Back Mirror3</div>
+                    <div class="back bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="backMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="backMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="backMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
 
-                    <div class="bottom bg-codeBlue-primaryTrans">Bottom</div>
-                    <div class="bottomMirror1 bg-gradient-to-r from-codeBlue-primaryTrans">Bottom Mirror1</div>
-                    <div class="bottomMirror2 bg-gradient-to-r from-codeBlue-primaryTrans">Bottom Mirror2</div>
-                    <div class="bottomMirror3 bg-gradient-to-r from-codeBlue-primaryTrans">Bottom Mirror3</div>
+                    <div class="bottom bg-codeBlue-primaryTrans"></div>
+                    <div class="bottomMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="bottomMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="bottomMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                 </div>
             </div>
         </div>

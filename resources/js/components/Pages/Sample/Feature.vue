@@ -115,7 +115,7 @@ export default {
         setTimeout(()=>{
             console.log("Loading Finished");
             that.page.processing = false;
-        }, 7000);
+        }, 9000);
     }
 }
 </script>
