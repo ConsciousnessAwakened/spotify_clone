@@ -1,6 +1,7 @@
 <template>
     <div>
-        <warping-cube :processing="page.processing"/>
+        <warping-cube :processing="page.state.processing"/>
+        <slot></slot>
     </div>
 </template>
 
@@ -23,20 +24,28 @@ export default {
     data() {
         return {
             page : {
-                processing : true
+                state : {
+                    processing : true
+                }
             }
         }
     },
 
     mounted() {
+
         let that = this;
 
         document.onreadystatechange = () => {
 
             if (DOCUMENT.READY_STATE.COMPLETE === document.readyState) {
-                that.page.processing = true;
+                setTimeout(() => {
+                    that.page.state.processing = false;
+                }, 720)
             }
         }
+    },
+
+    methods: {
     }
 }
 </script>

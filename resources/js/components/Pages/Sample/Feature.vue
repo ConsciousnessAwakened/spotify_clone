@@ -109,12 +109,12 @@ export default {
         //Sample loading inside child component
         setTimeout(()=>{
             console.log("Loading Start");
-            that.page.processing = true;
+            that.page.state.processing = true;
         }, 3000);
 
         setTimeout(()=>{
             console.log("Loading Finished");
-            that.page.processing = false;
+            that.page.state.processing = false;
         }, 9000);
     }
 }

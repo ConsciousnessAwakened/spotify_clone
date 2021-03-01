@@ -135,11 +135,11 @@ $delayLimit: 30;
 
 .cube .sides {
     @include initialMirror("top",       rotateX(90deg),     1);
-    @include initialMirror("bottom",    rotateX(-90deg),    1);
-    @include initialMirror("front",     rotateY(0deg),      1);
+    @include initialMirror("bottom",    rotateX(-90deg),    2);
+    @include initialMirror("front",     rotateY(0deg),      2);
     @include initialMirror("back",      rotateY(-180deg),   1);
-    @include initialMirror("left",      rotateY(-90deg),    1);
-    @include initialMirror("right",     rotateY(90deg),     1);
+    @include initialMirror("left",      rotateY(-90deg),    2);
+    @include initialMirror("right",     rotateY(90deg),     0);
 
     @include mirror("topMirror1",     rotateX(90deg),     random($delayLimit));
     @include mirror("topMirror2",     rotateX(90deg),     random($delayLimit));

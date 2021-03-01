@@ -27,3 +27,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+import Moment from 'moment';
+import Collection from "./Classes/Collection";
+window.Collection = Collection;
+window.Moment = Moment;
+Moment.defaultFormat = 'YYYY-MM-DD HH:mm:ss';

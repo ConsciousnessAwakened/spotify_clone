@@ -13,12 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/callback', function () {
-    return "Returned";
-});
+Route::get('/callback', [\App\Http\Controllers\CallbackController::class, 'prototype']);
 
 Route::get('/', function () {
 
-    return inertia('Layouts/App');
+    return inertia('Pages/Authentication/Guest');
 });
-
