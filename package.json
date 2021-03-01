@@ -23,7 +23,9 @@
     "dependencies": {
         "@inertiajs/inertia": "^0.8.5",
         "@inertiajs/inertia-vue": "^0.5.5",
+        "moment": "^2.29.1",
         "node-sass": "^5.0.0",
-        "vue": "^2.6.12"
+        "vue": "^2.6.12",
+        "vuex": "^3.6.2"
     }
 }

@@ -9,6 +9,7 @@ class CallbackController extends Controller
 {
     public function prototype(Request $request): JsonResponse
     {
+        \Log::debug(print_r($request->fullUrl(), true));
         return $this->successfulResponse('data', 'message');
     }
 }

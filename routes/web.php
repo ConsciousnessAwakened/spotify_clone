@@ -20,3 +20,7 @@ Route::get('/', function () {
     return inertia('Layouts/App');
 });
 
+Route::get('/authorize', function () {
+
+    return inertia('Layouts/App');
+});
