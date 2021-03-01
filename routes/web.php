@@ -17,10 +17,5 @@ Route::get('/callback', [\App\Http\Controllers\CallbackController::class, 'proto
 
 Route::get('/', function () {
 
-    return inertia('Layouts/App');
-});
-
-Route::get('/authorize', function () {
-
-    return inertia('Layouts/App');
+    return inertia('Pages/Authentication/Guest');
 });

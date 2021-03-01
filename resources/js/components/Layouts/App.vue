@@ -1,19 +1,17 @@
 <template>
     <div>
-        <warping-cube :processing="page.processing"/>
-        <login />
+        <warping-cube :processing="page.state.processing"/>
+        <slot></slot>
     </div>
 </template>
 
 <script>
 import WarpingCube from "../Loaders/WarpingCube";
-import Login from "../Pages/Authentication/Login";
 
 export default {
     name: "App",
 
     components: {
-        Login,
         WarpingCube
     },
 
@@ -26,7 +24,9 @@ export default {
     data() {
         return {
             page : {
-                processing : true
+                state : {
+                    processing : true
+                }
             }
         }
     },
@@ -38,7 +38,9 @@ export default {
         document.onreadystatechange = () => {
 
             if (DOCUMENT.READY_STATE.COMPLETE === document.readyState) {
-                setTimeout(()=>{that.page.processing = false;}, 750)
+                setTimeout(() => {
+                    that.page.state.processing = false;
+                }, 720)
             }
         }
     },

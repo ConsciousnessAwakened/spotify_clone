@@ -4,7 +4,7 @@
             <div class="">
 
                 <!--<img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Logo">-->
-                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                <h2 class="mt-6 text-center font-semibold text-3xl text-gray-900">
                     Definitely not Spotify
                 </h2>
 
@@ -37,23 +37,14 @@ export default {
     methods: {
         authorize() {
 
-            let original = "https://accounts.spotify.com/authorize?" +
-                "response_type=token&" +
-                "client_id=dd285707969f43e3a8fcca53ecb2be22&" +
-                "redirect_uri=http://prototype_spotify_clone.test/callback&" +
-                "scope=ugc-image-upload user-read-recently-played user-top-read user-read-playback-position user-read-playback-state user-modify-playback-state user-read-currently-playing app-remote-control streaming playlist-modify-public playlist-modify-private playlist-read-private playlist-read-collaborative user-follow-modify user-follow-read user-library-modify user-library-read user-read-email user-read-private&" +
-                "state=" + Moment.now();
-
-            let address = this.$store.state.api.address.authorization + "/authorize?" +
+            let uri = this.$store.state.api.spotify.address.authorization + "/authorize?" +
                 "response_type=token&" +
                 "client_id=" + process.env.MIX_APP_ID + "&" +
                 "redirect_uri=" + process.env.MIX_APP_CALLBACK + "&" +
-                "scope=" + Collection.concatKeys(this.$store.state.api.scopes, 'key', ' ') + "&" +
+                "scope=" + Collection.concatKeys(this.$store.state.api.spotify.scopes, 'key', ' ') + "&" +
                 "state=" + Moment.now();
 
-            console.log(original === address);
-
-            console.log(encodeURI(address));
+            window.location = encodeURI(uri);
         }
     }
 }
