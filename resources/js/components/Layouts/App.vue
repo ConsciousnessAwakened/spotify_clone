@@ -1,11 +1,12 @@
 <template>
     <div>
-        <warping-cube :processing="page.state.processing"/>
+        <warping-cube :processing="app.status.processing"/>
         <slot></slot>
     </div>
 </template>
 
 <script>
+import Core from "../../Mixins/Core";
 import WarpingCube from "../Loaders/WarpingCube";
 
 export default {
@@ -15,37 +16,34 @@ export default {
         WarpingCube
     },
 
+    mixins:[
+        Core
+    ],
+
     provide() {
         return {
-            page : this.page
+
         }
     },
 
-    data() {
-        return {
-            page : {
-                state : {
-                    processing : true
-                }
-            }
-        }
+    computed : {
+
     },
 
     mounted() {
-
-        let that = this;
 
         document.onreadystatechange = () => {
 
             if (DOCUMENT.READY_STATE.COMPLETE === document.readyState) {
                 setTimeout(() => {
-                    that.page.state.processing = false;
+                    this.finishProcessing();
                 }, 720)
             }
         }
     },
 
     methods: {
+
     }
 }
 </script>

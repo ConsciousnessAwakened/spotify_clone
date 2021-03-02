@@ -95,26 +95,29 @@
 </template>
 
 <script>
+import Core from "../../../Mixins/Core";
+
 export default {
     name: "Feature",
 
-    inject: [
-        'page'
+    mixins:[
+        Core
     ],
 
     mounted() {
-        let that = this;
         console.log("Feature Mounted");
 
         //Sample loading inside child component
         setTimeout(()=>{
             console.log("Loading Start");
-            that.page.state.processing = true;
+            this.startProcessing();
+            console.log(this.app);
         }, 3000);
 
         setTimeout(()=>{
             console.log("Loading Finished");
-            that.page.state.processing = false;
+            this.finishProcessing();
+            console.log(this.app);
         }, 9000);
     }
 }
