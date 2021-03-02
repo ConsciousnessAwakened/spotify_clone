@@ -31,20 +31,55 @@
 </template>
 
 <script>
+import Core from "../../../Mixins/Core";
+
 export default {
     name: "Login",
+
+    mixins:[
+        Core
+    ],
 
     methods: {
         authorize() {
 
-            let uri = this.$store.state.api.spotify.address.authorization + "/authorize?" +
-                "response_type=token&" +
-                "client_id=" + process.env.MIX_APP_ID + "&" +
-                "redirect_uri=" + process.env.MIX_APP_CALLBACK + "&" +
-                "scope=" + Collection.concatKeys(this.$store.state.api.spotify.scopes, 'key', ' ') + "&" +
-                "state=" + Moment.now();
+            let that = this;
 
-            window.location = encodeURI(uri);
+            if (that.app.status.processing) {
+                return false;
+            }
+
+            that.startProcessing();
+
+            let state = Text.random(10);
+
+            this.updateApiAuthorizationState({
+                state : state
+            }).then(function (response) {
+
+                // let uri = this.$store.state.api.spotify.address.authorization + "/authorize?" +
+                //     "response_type=token&" +
+                //     "client_id=" + process.env.MIX_APP_ID + "&" +
+                //     "redirect_uri=" + process.env.MIX_APP_CALLBACK + "&" +
+                //     "scope=" + Collection.concatKeys(this.$store.state.api.spotify.scopes, 'key', ' ') + "&" +
+                //     "state=" + state;
+                //
+                // window.location = encodeURI(uri);
+
+                setTimeout(()=>{
+
+                    that.finishProcessing();
+                    console.log(response);
+                }, 3000);
+
+            }).catch(function (error) {
+
+                setTimeout(()=>{
+
+                    that.finishProcessing();
+                    console.log(error.response.data.errors);
+                }, 3000);
+            });
         }
     }
 }

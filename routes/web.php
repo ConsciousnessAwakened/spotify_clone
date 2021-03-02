@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/callback', [\App\Http\Controllers\CallbackController::class, 'prototype']);
+Route::get('/', [\App\Http\Controllers\AuthorizationController::class, 'index']);
 
-Route::get('/', function () {
+Route::get('/callback', [\App\Http\Controllers\AuthorizationController::class, 'callback']);
 
-    return inertia('Pages/Authentication/Guest');
-});
+Route::post('/state', [\App\Http\Controllers\AuthorizationController::class, 'storeState']);

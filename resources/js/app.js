@@ -1,6 +1,7 @@
 require('./bootstrap');
 
 import Vue from'vue';
+
 import store from './store';
 
 import { Inertia } from '@inertiajs/inertia'
