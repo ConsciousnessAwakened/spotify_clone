@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import Core from "../../Mixins/Core";
 import WarpingCube from "../Loaders/WarpingCube";
 
 export default {
@@ -15,10 +14,6 @@ export default {
     components: {
         WarpingCube
     },
-
-    mixins:[
-        Core
-    ],
 
     provide() {
         return {
@@ -32,14 +27,6 @@ export default {
 
     mounted() {
 
-        document.onreadystatechange = () => {
-
-            if (DOCUMENT.READY_STATE.COMPLETE === document.readyState) {
-                setTimeout(() => {
-                    this.finishProcessing();
-                }, 720)
-            }
-        }
     },
 
     methods: {

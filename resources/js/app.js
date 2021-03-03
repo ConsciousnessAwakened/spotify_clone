@@ -1,19 +1,24 @@
 require('./bootstrap');
 
 import Vue from'vue';
-
 import store from './store';
-
 import { Inertia } from '@inertiajs/inertia'
 import { InertiaApp, plugin } from '@inertiajs/inertia-vue';
+import Core from './Mixins/Core';
 
-Inertia.on('start', () => console.log("INERTIA STARTED"));
-Inertia.on('finish', () => console.log("INERTIA FINISHED"));
+import { InertiaProgress } from '@inertiajs/progress'
+InertiaProgress.init()
+
+Vue.mixin(Core);
 Vue.use(plugin);
 
+Inertia.on('start', (event) => console.log("INERTIA STARTED"));
+Inertia.on('finish', (event) => console.log("INERTIA FINISHED"));
+
 new Vue({
-    el : '#app',
+    el: '#app',
     store,
+    mounted() {this.finishProcessing();},
     render: h => h(InertiaApp, {
         props: {
             initialPage: JSON.parse(document.getElementById('app').dataset.page),

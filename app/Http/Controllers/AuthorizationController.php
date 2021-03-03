@@ -12,18 +12,19 @@ class AuthorizationController extends Controller
 
     public function index()
     {
+        $callback = request()->has('error')
+            ? redirect('/')
+            : inertia('Pages/Authentication/Guest');
+
         if (request()->wantsJson()) {
-
             if($this->stateValid(request()->input('state'))){
-
                 return $this->successfulResponse(request()->all(), '');
             } else {
-
                 return $this->errorResponse(['Invalid State'], '');
             }
         }
 
-        return inertia('Pages/Authentication/Guest');
+        return $callback;
     }
 
     public function storeState(): JsonResponse
