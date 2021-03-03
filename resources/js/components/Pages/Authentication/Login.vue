@@ -53,23 +53,24 @@ export default {
 
             let state = Text.random(10);
 
-            this.updateApiAuthorizationState({
+            that.updateApiAuthorizationState({
                 state : state
             }).then(function (response) {
 
-                // let uri = this.$store.state.api.spotify.address.authorization + "/authorize?" +
-                //     "response_type=token&" +
-                //     "client_id=" + process.env.MIX_APP_ID + "&" +
-                //     "redirect_uri=" + process.env.MIX_APP_CALLBACK + "&" +
-                //     "scope=" + Collection.concatKeys(this.$store.state.api.spotify.scopes, 'key', ' ') + "&" +
-                //     "state=" + state;
-                //
-                // window.location = encodeURI(uri);
-
-                setTimeout(()=>{
+                setTimeout(() => {
 
                     that.finishProcessing();
                     console.log(response);
+
+                    let uri = that.api.spotify.address.authorization + "/authorize?" +
+                        "response_type=token&" +
+                        "client_id=" + process.env.MIX_APP_ID + "&" +
+                        "redirect_uri=" + process.env.MIX_APP_CALLBACK + "&" +
+                        "scope=" + Collection.concatKeys(that.api.spotify.scopes, 'key', ' ') + "&" +
+                        "state=" + state;
+
+                    window.location = encodeURI(uri);
+
                 }, 3000);
 
             }).catch(function (error) {

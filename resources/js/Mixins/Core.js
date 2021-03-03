@@ -5,6 +5,7 @@ export default {
 
     computed: {
         ...mapState({
+            api : state => state.api,
             app : state => state.app
         })
     },
@@ -13,7 +14,8 @@ export default {
         ...mapActions([
             'startProcessing',
             'finishProcessing',
-            'updateApiAuthorizationState'
+            'updateApiAuthorizationState',
+            'confirmApiAuthorization'
         ])
     }
 }
