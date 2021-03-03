@@ -7,25 +7,19 @@
 <script>
 import App from "../../Layouts/App";
 import Login from "./Login";
-import Core from "../../../Mixins/Core";
 
 export default {
     name: "Guest",
-
-    mixins:[
-        Core
-    ],
 
     components: {
         Login,
         App
     },
 
-    mounted() {
-        console.log("Guest Mounted");
+    beforeMount() {
+        let that = this;
 
         if(window.location.hash) {
-            let that = this;
 
             let hash = UrlHash.toObject();
 
@@ -40,11 +34,8 @@ export default {
                 }
             }).catch(function (error) {
 
-                setTimeout(()=>{
-
-                    that.finishProcessing();
-                    console.log(error.response.data.errors);
-                }, 3000);
+                that.finishProcessing();
+                console.log(error.response.data.errors);
             });
         }
     }

@@ -3,13 +3,12 @@
         <div class="max-w-md w-full space-y-8">
             <div class="">
 
-                <!--<img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Logo">-->
                 <h2 class="mt-6 text-center font-semibold text-3xl text-gray-900">
                     Definitely not Spotify
                 </h2>
 
                 <p class="mt-2 text-center text-sm text-gray-600">
-                    become a patreon
+                    become a patron
                     <a href="#" class="font-bold text-lg text-codeBlue-primary hover:text-indigo-500">
                         here
                     </a>
@@ -23,22 +22,14 @@
                     <span class="ml-12 mr-2 text-xl">Continue with Spotify Account</span>
                 </button>
             </div>
-            <!--<div class="">
-                <img class="mx-auto h-12 w-auto" src="/images/spotify/spotify-icons-logos/logos/02_CMYK/02_PNG/Spotify_Logo_CMYK_Black.png" alt="Workflow">
-            </div>-->
         </div>
     </div>
 </template>
 
 <script>
-import Core from "../../../Mixins/Core";
 
 export default {
     name: "Login",
-
-    mixins:[
-        Core
-    ],
 
     methods: {
         authorize() {
@@ -71,15 +62,12 @@ export default {
 
                     window.location = encodeURI(uri);
 
-                }, 3000);
+                }, 1200);
 
             }).catch(function (error) {
 
-                setTimeout(()=>{
-
-                    that.finishProcessing();
-                    console.log(error.response.data.errors);
-                }, 3000);
+                that.finishProcessing();
+                console.log(error.response.data.errors);
             });
         }
     }
