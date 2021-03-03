@@ -2,19 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\HasAuthorization;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Session;
 
 class AuthorizationController extends Controller
 {
+    use HasAuthorization;
+
     public function index()
     {
-        return inertia('Pages/Authentication/Guest');
-    }
+        if (request()->wantsJson()) {
 
-    public function callback(): JsonResponse
-    {
-        return $this->successfulResponse(request()->all(), '');
+            if($this->stateValid(request()->input('state'))){
+
+                return $this->successfulResponse(request()->all(), '');
+            } else {
+
+                return $this->errorResponse(['Invalid State'], '');
+            }
+        }
+
+        return inertia('Pages/Authentication/Guest');
     }
 
     public function storeState(): JsonResponse
@@ -22,12 +31,8 @@ class AuthorizationController extends Controller
         if (request()->wantsJson()) {
 
             try {
-                \Log::debug(print_r(Session::all(), true));
-
                 Session::flush();
                 Session::put('state', request()->get('state'));
-
-                \Log::debug(print_r(Session::all(), true));
 
                 return $this->successfulResponse(request()->all(), '');
 

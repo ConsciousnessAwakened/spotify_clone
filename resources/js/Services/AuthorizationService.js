@@ -5,5 +5,9 @@ export const AuthorizationService = {
         return axios.post('/state', {
             state : args.state
         })
+    },
+
+    confirmApiAuthorization({}, args) {
+        return axios.post('/callback', args.form)
     }
 }
