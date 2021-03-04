@@ -1,12 +1,12 @@
 require('./bootstrap');
 
-import Vue from'vue';
+import Vue from "vue";
+import Core from './Mixins/Core';
 import store from './store';
 import { Inertia } from '@inertiajs/inertia'
 import { InertiaApp, plugin } from '@inertiajs/inertia-vue';
-import Core from './Mixins/Core';
+import { InertiaProgress } from '@inertiajs/progress';
 
-import { InertiaProgress } from '@inertiajs/progress'
 InertiaProgress.init()
 
 Vue.mixin(Core);

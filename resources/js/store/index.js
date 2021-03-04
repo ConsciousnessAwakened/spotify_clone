@@ -1,3 +1,5 @@
+require('../bootstrap');
+
 import Vue from "vue";
 import Vuex from 'vuex';
 import actions from "./actions";
@@ -39,8 +41,9 @@ export default new Vuex.Store({
         app : {
             status : {
                 processing : true
-            }
-        }
+            },
+            notification : new Statement(['info', 'warning', 'error'])
+        },
     },
     mutations,
     actions
