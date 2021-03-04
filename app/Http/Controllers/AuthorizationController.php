@@ -13,12 +13,13 @@ class AuthorizationController extends Controller
     public function index()
     {
         $callback = request()->has('error')
-            ? redirect('/')
+            ? redirect('/?message=' . urlencode(request()->get('error')))
             : inertia('Pages/Authentication/Guest');
 
         if (request()->wantsJson()) {
             if($this->stateValid(request()->input('state'))){
-                return $this->successfulResponse(request()->all(), '');
+                \Log::debug(request()->all());
+                return $this->successfulResponse([], '');
             } else {
                 return $this->errorResponse(['Invalid State'], '');
             }

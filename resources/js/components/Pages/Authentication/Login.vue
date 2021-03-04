@@ -46,12 +46,11 @@ export default {
 
             that.updateApiAuthorizationState({
                 state : state
-            }).then(function (response) {
+            }).then(function () {
 
                 setTimeout(() => {
 
                     that.finishProcessing();
-                    console.log(response);
 
                     let uri = that.api.spotify.address.authorization + "/authorize?" +
                         "response_type=token&" +

@@ -19,25 +19,49 @@ export default {
     beforeMount() {
         let that = this;
 
-        if(window.location.hash) {
+        console.log(that.$store.state.app.notification);
 
-            let hash = UrlHash.toObject();
+        that.app.notification.error.set(['Error', 'Error 02']);
+        that.app.notification.info.set({payload : ['Info', 'Info 02']});
+        that.app.notification.warning.set({payload : ['Warning', 'Warning 02']});
 
-            that.confirmApiAuthorization({
-                form : hash
-            }).then(function (response) {
+        console.log(that.app.notification.error.get());
+        console.log(that.app.notification.info.get('payload'));
+        console.log(that.app.notification.warning.get());
 
-                that.finishProcessing();
-                if (response.data.isSuccessful) {
+        that.app.notification.error.clear();
+        that.app.notification.info.clear();
+        that.app.notification.warning.clear();
 
-                    that.$inertia.get('/account');
-                }
-            }).catch(function (error) {
+        console.log(that.app.notification.error.get());
+        console.log(that.app.notification.info.get('payload'));
+        console.log(that.app.notification.warning.get());
 
-                that.finishProcessing();
-                console.log(error.response.data.errors);
-            });
+        if (!_.isEmpty(Url.hashToObject())) {
+            console.log(Url.hashToObject());
         }
+
+        if (!_.isEmpty(Url.paramsToObject())) {
+            console.log(Url.paramsToObject());
+        }
+
+        // if(window.location.hash && Url.toObject().hasOwnProperty('access_token')) {
+        //
+        //     that.confirmApiAuthorization({
+        //         form : hash
+        //     }).then(function (response) {
+        //
+        //         that.finishProcessing();
+        //         if (response.data.isSuccessful) {
+        //
+        //             that.$inertia.get('/account');
+        //         }
+        //     }).catch(function (error) {
+        //
+        //         that.finishProcessing();
+        //         console.log(error.response.data.errors);
+        //     });
+        // }
     }
 }
 </script>

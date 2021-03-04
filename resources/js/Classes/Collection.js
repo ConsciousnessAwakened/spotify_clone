@@ -1,6 +1,14 @@
 
 export default class Collection {
 
+    /**
+     * Converts plucked collection value into delimited string
+     *
+     * @return string | boolean
+     * @param collection
+     * @param key
+     * @param delimiter
+     */
     static concatKeys(collection, key, delimiter = '|') {
         if (!collection instanceof Array) {
             return false;
@@ -16,15 +24,15 @@ export default class Collection {
     /**
      * Get the elements in the array based on the given key
      *
-     * @param  Array data
-     * @param  int key
-     * @param  int except
      * @return Array
+     * @param data
+     * @param key
+     * @param except
      */
     static pluck(data, key, except = null) {
-        var plucked = [];
+        let plucked = [];
 
-        for (var i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             if (i !== except) {
                 plucked.push(data[i][key]);
             }

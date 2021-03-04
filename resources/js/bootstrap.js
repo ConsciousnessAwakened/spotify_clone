@@ -31,9 +31,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import Moment from 'moment';
 import Collection from "./Classes/Collection";
 import Text from "./Classes/Text";
-import UrlHash from "./Classes/UrlHash";
+import Url from "./Classes/Url";
+import Statement from "./Classes/Statement";
+
+window.Moment = Moment;
 window.Collection = Collection;
 window.Text = Text;
-window.UrlHash = UrlHash;
-window.Moment = Moment;
+window.Url = Url;
+window.Statement = Statement;
+
 Moment.defaultFormat = 'YYYY-MM-DD HH:mm:ss';
