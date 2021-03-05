@@ -28,12 +28,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: true
 // });
 
+import Vue from "vue";
 import Moment from 'moment';
 import Collection from "./Classes/Collection";
 import Text from "./Classes/Text";
 import Url from "./Classes/Url";
 import Statement from "./Classes/Statement";
 
+window.Vue = Vue;
 window.Moment = Moment;
 window.Collection = Collection;
 window.Text = Text;
