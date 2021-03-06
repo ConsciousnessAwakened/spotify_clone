@@ -18,7 +18,7 @@ class AuthorizationController extends Controller
 
         if (request()->wantsJson()) {
             if($this->stateValid(request()->input('state'))){
-                \Log::debug(request()->all());
+
                 return $this->successfulResponse([], '');
             } else {
                 return $this->errorResponse(['Invalid State'], '');

@@ -19,33 +19,20 @@ export default {
     beforeMount() {
         let that = this;
 
-        console.log(that.notification);
+        if(Uri.hasValueAndProperty('hash', 'access_token')) {
 
-        if (!_.isEmpty(Url.hashToObject())) {
-            console.log(Url.hashToObject());
+            that.confirmApiAuthorization({
+                form : Uri.toObject('hash')
+            }).then(function (response) {
+
+                that.finishProcessing();
+                if (response.data['isSuccessful']) that.$inertia.get('/account');
+            }).catch(function (error) {
+
+                that.finishProcessing();
+                console.log(error.response.data.errors);
+            });
         }
-
-        if (!_.isEmpty(Url.paramsToObject())) {
-            console.log(Url.paramsToObject());
-        }
-
-        // if(window.location.hash && Url.toObject().hasOwnProperty('access_token')) {
-        //
-        //     that.confirmApiAuthorization({
-        //         form : hash
-        //     }).then(function (response) {
-        //
-        //         that.finishProcessing();
-        //         if (response.data.isSuccessful) {
-        //
-        //             that.$inertia.get('/account');
-        //         }
-        //     }).catch(function (error) {
-        //
-        //         that.finishProcessing();
-        //         console.log(error.response.data.errors);
-        //     });
-        // }
     }
 }
 </script>

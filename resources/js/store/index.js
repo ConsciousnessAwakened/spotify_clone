@@ -42,10 +42,7 @@ export default new Vuex.Store({
                 processing : true
             }
         },
-        notification : new Statement({
-            modules : ['api', 'app'],
-            types : ['info', 'warning', 'error']
-        })
+        notification : new Statement({types : ['info', 'warning']})
     },
     mutations,
     actions
