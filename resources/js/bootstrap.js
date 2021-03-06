@@ -1,5 +1,4 @@
 window._ = require('lodash');
-import './enums';
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -28,18 +27,19 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: true
 // });
 
+import './enums';
 import Vue from "vue";
 import Moment from 'moment';
 import Collection from "./Classes/Collection";
 import Text from "./Classes/Text";
-import Url from "./Classes/Url";
+import Uri from "./Classes/Uri";
 import Statement from "./Classes/Statement";
 
 window.Vue = Vue;
 window.Moment = Moment;
 window.Collection = Collection;
 window.Text = Text;
-window.Url = Url;
+window.Uri = Uri;
 window.Statement = Statement;
 
 Moment.defaultFormat = 'YYYY-MM-DD HH:mm:ss';
