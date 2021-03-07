@@ -3,6 +3,7 @@ require('../bootstrap');
 import Vuex from 'vuex';
 import actions from "./actions";
 import { mutations } from "./mutations";
+import services from "./services";
 
 Vue.use(Vuex);
 
@@ -38,6 +39,7 @@ export default new Vuex.Store({
             }
         },
         app : {
+            service : services,
             status : {
                 processing : true
             }
@@ -45,5 +47,6 @@ export default new Vuex.Store({
         notification : new Statement({types : ['info', 'warning']})
     },
     mutations,
-    actions
+    actions,
+    devtools : true
 });

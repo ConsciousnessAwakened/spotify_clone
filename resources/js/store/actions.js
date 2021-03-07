@@ -1,16 +1,34 @@
-import {AuthorizationService} from "../Services/AuthorizationService";
 
 export default {
 
-    ...AuthorizationService,
-
     startProcessing({commit}) {
-
-        commit('statePageProcess', true);
+        commit('stateProcess', true);
     },
 
     finishProcessing({commit}) {
+        commit('stateProcess', false);
+    },
 
-        commit('statePageProcess', false);
+    request({state, commit}, payload) {
+        if (state.app.status.processing) return false;
+
+        commit('stateProcess', true);
+
+        payload.service(
+            payload.args
+        ).then(function (response) {
+            setTimeout(() => {
+                commit('stateProcess', false);
+                payload.successCallback(response);
+            }, payload.delayed ? 1200 : 0);
+
+        }).catch(function (error) {
+
+            commit('stateProcess', false);
+            alert(error.response.data.errors.join("\n"));
+            console.log(error.response.data.errors);
+        }).then(function () {
+
+        });
     }
 }

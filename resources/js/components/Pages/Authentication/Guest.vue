@@ -17,20 +17,16 @@ export default {
     },
 
     beforeMount() {
-        let that = this;
+        let that = this
 
         if(Uri.hasValueAndProperty('hash', 'access_token')) {
-
-            that.confirmApiAuthorization({
-                form : Uri.toObject('hash')
-            }).then(function (response) {
-
-                that.finishProcessing();
-                if (response.data['isSuccessful']) that.$inertia.get('/account');
-            }).catch(function (error) {
-
-                that.finishProcessing();
-                console.log(error.response.data.errors);
+            that.request({
+                service : that.service.confirmApiAuthorization,
+                delayed : false,
+                args : { data : Uri.toObject('hash') },
+                successCallback : (response) => {
+                    if (response.data['isSuccessful']) that.$inertia.get('/account');
+                }
             });
         }
     }

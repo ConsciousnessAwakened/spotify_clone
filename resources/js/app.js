@@ -17,7 +17,7 @@ Inertia.on('finish', (event) => console.log("INERTIA FINISHED"));
 new Vue({
     el: '#app',
     store,
-    mounted() {this.finishProcessing()},
+    mounted() {this.finishProcessing();},
     render: h => h(InertiaApp, {
         props: {
             initialPage: JSON.parse(document.getElementById('app').dataset.page),
