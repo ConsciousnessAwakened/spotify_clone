@@ -15,7 +15,7 @@
                 </p>
             </div>
             <div class="flex justify-center">
-                <button @click="authorize" type="submit" class="relative flex shadow-lg items-center py-3 px-4 border border-transparent text-sm font-medium rounded-full text-white bg-codeBlue-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--codeBlue-secondary">
+                <button @click="continueWith" type="submit" class="relative flex shadow-lg items-center py-3 px-4 border border-transparent text-sm font-medium rounded-full text-white bg-codeBlue-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--codeBlue-secondary">
                     <span class="absolute left-0 inset-y-0 flex items-center pl-5">
                       <svg class="h-9 w-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                     </span>
@@ -28,30 +28,21 @@
 
 <script>
 
+import services from "../../../store/services";
+
 export default {
     name: "Login",
 
     methods: {
-        authorize() {
-
+        continueWith() {
             let that = this;
-
-            if (that.app.status.processing) {
-                return false;
-            }
-
-            that.startProcessing();
-
             let state = Text.random(10);
 
-            that.updateApiAuthorizationState({
-                state : state
-            }).then(function () {
-
-                setTimeout(() => {
-
-                    that.finishProcessing();
-
+            that.request({
+                service : that.service.updateApiAuthorizationState,
+                delayed : true,
+                args : { data : state },
+                successCallback : (response) => {
                     let uri = that.api.spotify.address.authorization + "/authorize?" +
                         "response_type=token&" +
                         "client_id=" + process.env.MIX_APP_ID + "&" +
@@ -60,13 +51,7 @@ export default {
                         "state=" + state;
 
                     window.location = encodeURI(uri);
-
-                }, 1200);
-
-            }).catch(function (error) {
-
-                that.finishProcessing();
-                console.log(error.response.data.errors);
+                }
             });
         }
     }

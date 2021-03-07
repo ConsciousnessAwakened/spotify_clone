@@ -1,13 +1,12 @@
-export const AuthorizationService = {
+export const AuthorizationService =  {
 
-    updateApiAuthorizationState({}, args) {
-
+    updateApiAuthorizationState(args) {
         return axios.post('/state', {
-            state : args.state
+            state : args.data
         })
     },
 
-    confirmApiAuthorization({}, args) {
-        return axios.post('/callback', args.form)
+    confirmApiAuthorization(args) {
+        return axios.post('/callback', args.data)
     }
 }

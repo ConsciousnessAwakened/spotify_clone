@@ -14,6 +14,10 @@ export default {
     components: {
         Feature,
         App
+    },
+
+    mounted() {
+
     }
 }
 </script>

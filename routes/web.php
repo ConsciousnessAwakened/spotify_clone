@@ -19,6 +19,8 @@ Route::post('/callback', [\App\Http\Controllers\AuthorizationController::class, 
 
 Route::post('/state', [\App\Http\Controllers\AuthorizationController::class, 'storeState']);
 
+Route::get('/feature', function(){return inertia('Pages/Main/Welcome');});
+
 Route::middleware(['authorized'])->group(function () {
 
     Route::get('/account', function(){return inertia('Pages/Main/Welcome');});
