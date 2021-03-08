@@ -17,7 +17,9 @@ export default {
         payload.service(
             payload.args
         ).then(function (response) {
+
             setTimeout(() => {
+
                 commit('stateProcess', false);
                 payload.successCallback(response);
             }, payload.delayed ? 1200 : 0);
