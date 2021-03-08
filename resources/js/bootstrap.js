@@ -34,6 +34,7 @@ import Collection from "./Classes/Collection";
 import Text from "./Classes/Text";
 import Uri from "./Classes/Uri";
 import Statement from "./Classes/Statement";
+import Obj from "./Classes/Obj";
 
 window.Vue = Vue;
 window.Moment = Moment;
@@ -41,5 +42,6 @@ window.Collection = Collection;
 window.Text = Text;
 window.Uri = Uri;
 window.Statement = Statement;
+window.Obj = Obj;
 
 Moment.defaultFormat = 'YYYY-MM-DD HH:mm:ss';
