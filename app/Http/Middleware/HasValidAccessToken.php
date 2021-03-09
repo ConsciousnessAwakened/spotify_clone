@@ -17,10 +17,10 @@ class HasValidAccessToken
      */
     public function handle(Request $request, Closure $next)
     {
-        //\Log::debug(print_r(Session::all(), true));
+        \Log::debug(print_r(Session::all(), true));
 
-        //return redirect('/');
-
-        return $next($request);
+        return Session::has('access_token')
+            ? $next($request)
+            : redirect('/');
     }
 }
