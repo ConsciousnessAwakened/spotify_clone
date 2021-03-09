@@ -19,8 +19,8 @@ class HasValidAccessToken
     {
         //\Log::debug(print_r(Session::all(), true));
 
-        return redirect('/');
+        //return redirect('/');
 
-        //return $next($request);
+        return $next($request);
     }
 }

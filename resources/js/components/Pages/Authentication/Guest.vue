@@ -16,7 +16,7 @@ export default {
         App
     },
 
-    beforeMount() {
+    mounted() {
         let that = this
 
         if(Uri.hasValueAndProperty('hash', 'access_token')) {
@@ -25,7 +25,8 @@ export default {
                 delayed : false,
                 args : { data : Uri.toObject('hash') },
                 successCallback : (response) => {
-                    if (response.data['isSuccessful']) that.$inertia.get('/account');
+
+                    if (response.data['isSuccessful']) that.$inertia.get('/welcome');
                 }
             });
         }

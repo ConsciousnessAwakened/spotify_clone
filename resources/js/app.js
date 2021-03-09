@@ -11,13 +11,13 @@ InertiaProgress.init()
 Vue.mixin(Core);
 Vue.use(plugin);
 
-Inertia.on('start', (event) => console.log("INERTIA STARTED"));
-Inertia.on('finish', (event) => console.log("INERTIA FINISHED"));
+Inertia.on('start', (event) => {});
+Inertia.on('finish', (event) => {});
 
 new Vue({
     el: '#app',
     store,
-    mounted() {this.finishProcessing();},
+    mounted() {this.finishProcessing()},
     render: h => h(InertiaApp, {
         props: {
             initialPage: JSON.parse(document.getElementById('app').dataset.page),
