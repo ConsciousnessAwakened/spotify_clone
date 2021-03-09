@@ -21,6 +21,9 @@ class AuthorizationController extends Controller
             if($this->stateValid(request()->input('state'))){
 
                 \Log::debug(print_r(request()->all(), true));
+
+                Session::put('access_token', request()->input('access_token'));
+
                 return $this->successfulResponse([], '');
             } else {
 
