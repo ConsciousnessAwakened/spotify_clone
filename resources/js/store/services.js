@@ -1,4 +1,4 @@
-import {AuthorizationService} from "../Services/AuthorizationService";
+import AuthorizationService from "../Services/AuthorizationService";
 
 export default {
     ...AuthorizationService

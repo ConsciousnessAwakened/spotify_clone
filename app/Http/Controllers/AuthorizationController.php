@@ -17,10 +17,13 @@ class AuthorizationController extends Controller
             : inertia('Pages/Authentication/Guest');
 
         if (request()->wantsJson()) {
+
             if($this->stateValid(request()->input('state'))){
+
                 \Log::debug(print_r(request()->all(), true));
                 return $this->successfulResponse([], '');
             } else {
+
                 return $this->errorResponse(['Invalid State'], '');
             }
         }
@@ -35,7 +38,7 @@ class AuthorizationController extends Controller
             try {
                 Session::flush();
                 Session::put('state', request()->get('state'));
-
+                \Log::debug(print_r(Session::all(), true));
                 return $this->successfulResponse(request()->all(), '');
 
             } catch(\Exception $exception) {

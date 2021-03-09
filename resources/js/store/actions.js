@@ -1,6 +1,5 @@
 
-export default {
-
+export let generic = {
     startProcessing({commit}) {
         commit('stateProcess', true);
     },
@@ -8,10 +7,12 @@ export default {
     finishProcessing({commit}) {
         commit('stateProcess', false);
     },
+}
+
+export default {
+    ...generic,
 
     request({state, commit}, payload) {
-        if (state.app.status.processing) return false;
-
         commit('stateProcess', true);
 
         payload.service(

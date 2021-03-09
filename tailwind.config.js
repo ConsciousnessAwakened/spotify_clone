@@ -14,6 +14,21 @@ module.exports = {
         extend: {
             fontFamily : {
                 sans : ['Inter', 'Roboto']
+            },
+            width : {
+                'sidebar' : '230px'
+            },
+            spacing : {
+                'sidebar' : '230px',
+                'installApp' : '38px',
+                'cover' : '230px',
+                'playbar' : '90px',
+
+                'InstallApp-cover' : '268px',
+                'cover-playbar': '320px',
+                'InstallApp-cover-playbar' : '358px',
+
+                'InstallApp-playbar' : '128px'
             }
         },
         colors: {

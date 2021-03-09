@@ -1,23 +1,30 @@
 <template>
     <app>
-        <feature />
+        <play></play>
     </app>
 </template>
 
 <script>
 import App from "../../Layouts/App";
-import Feature from "../Sample/Feature";
+import Play from "./Player/Play";
 
 export default {
     name: "Welcome",
 
     components: {
-        Feature,
+        Play,
         App
     },
 
     mounted() {
-
+        this.startProcessing();
+        // setTimeout(()=>{
+        //     this.startProcessing();
+        // }, 3000);
+        //
+        setTimeout(()=>{
+            this.finishProcessing();
+        }, 9000);
     }
 }
 </script>

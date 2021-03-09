@@ -1,4 +1,4 @@
-export const AuthorizationService =  {
+export default {
 
     updateApiAuthorizationState(args) {
         return axios.post('/state', {
