@@ -17,4 +17,8 @@ export default class Spotify extends Application{
 
         window.location = uri;
     }
+
+    account() {
+        return axios.get(`${this.libraryAddress}/me`);
+    }
 }

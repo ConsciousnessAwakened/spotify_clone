@@ -23,5 +23,5 @@ new Vue({
             initialPage: JSON.parse(document.getElementById('app').dataset.page),
             resolveComponent: name => require(`./components/${name}`).default
         },
-    })
+    }),
 });

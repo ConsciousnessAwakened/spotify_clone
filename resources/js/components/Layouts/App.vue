@@ -26,7 +26,7 @@ export default {
     },
 
     mounted() {
-
+        axios.defaults.headers.common['Authorization'] = `Bearer ${this.$page.props.access_token}`;
     },
 
     methods: {

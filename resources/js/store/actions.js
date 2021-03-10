@@ -15,21 +15,33 @@ export default {
     request({state, commit}, payload) {
         commit('stateProcess', true);
 
-        payload.service(
-            payload.args
-        ).then(function (response) {
+        console.log(payload);
+
+        if (typeof payload.service === 'undefined') return false;
+
+        console.log(typeof payload.service);
+        console.log(payload.service);
+
+        let service = (typeof payload.service === 'function')
+            ? payload.service(payload.args)
+            : payload.service;
+
+        service.then(function (response) {
 
             setTimeout(() => {
 
                 commit('stateProcess', false);
                 payload.successCallback(response);
-            }, payload.delayed ? 1200 : 0);
+            }, payload.delayedResponse ? 1200 : 0);
 
         }).catch(function (error) {
 
             commit('stateProcess', false);
             alert(error.response.data.errors.join("\n"));
-            console.log(error.response.data.errors);
+
+            if (process.env.MIX_APP_DEBUG) {
+                console.log(error.response.data.errors);
+            }
         }).then(function () {
 
         });

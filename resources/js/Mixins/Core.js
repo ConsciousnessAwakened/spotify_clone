@@ -2,12 +2,6 @@
 import {mapState, mapGetters, mapMutations, mapActions} from "vuex";
 
 export default {
-    data() {
-        return {
-
-        }
-    },
-
     computed: {
         ...mapState({
             api : state => state.api,

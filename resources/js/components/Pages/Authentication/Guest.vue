@@ -22,10 +22,9 @@ export default {
         if(Uri.hasValueAndProperty('hash', 'access_token')) {
             that.request({
                 service : that.service.confirmApiAuthorization,
-                delayed : false,
+                delayedResponse : true,
                 args : { data : Uri.toObject('hash') },
                 successCallback : (response) => {
-
                     if (response.data['isSuccessful']) that.$inertia.get('/welcome');
                 }
             });
