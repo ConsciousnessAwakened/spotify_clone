@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use function PHPUnit\Framework\isEmpty;
 
 class HasValidAccessToken
 {
@@ -19,7 +20,7 @@ class HasValidAccessToken
     {
         \Log::debug(print_r(Session::all(), true));
 
-        return Session::has('access_token')
+        return Session::has('access_token') && !is_null(Session::get('access_token'))
             ? $next($request)
             : redirect('/');
     }

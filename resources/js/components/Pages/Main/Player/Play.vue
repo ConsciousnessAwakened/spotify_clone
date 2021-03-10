@@ -18,6 +18,13 @@ export default {
     components: {
         Feature,
         'side-bar' : Sidebar
+    },
+
+    mounted() {
+        this.startProcessing();
+        setTimeout(()=>{
+            this.finishProcessing();
+        }, 3000);
     }
 }
 </script>

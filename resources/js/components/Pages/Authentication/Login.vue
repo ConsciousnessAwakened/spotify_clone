@@ -41,7 +41,7 @@ export default {
 
             that.request({
                 service : that.service.updateApiAuthorizationState,
-                delayed : true,
+                delayedResponse : true,
                 args : { data : state },
                 successCallback : () => {
                     that.api[app].authorize({

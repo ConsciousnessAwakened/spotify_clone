@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -37,7 +38,13 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         return array_merge(parent::share($request), [
-            //
+            'access_token' => Session::has('access_token') && !is_null(Session::get('access_token'))
+                ? Session::get('access_token')
+                : null,
+
+            'state' => Session::has('state') && !is_null(Session::get('state'))
+                ? Session::get('state')
+                : null
         ]);
     }
 }

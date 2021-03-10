@@ -20,8 +20,6 @@ class AuthorizationController extends Controller
 
             if($this->stateValid(request()->input('state'))){
 
-                \Log::debug(print_r(request()->all(), true));
-
                 Session::put('access_token', request()->input('access_token'));
 
                 return $this->successfulResponse([], '');
@@ -40,8 +38,9 @@ class AuthorizationController extends Controller
 
             try {
                 Session::flush();
-                Session::put('state', request()->get('state'));
+                Session::put('state', request()->input('state'));
                 \Log::debug(print_r(Session::all(), true));
+
                 return $this->successfulResponse(request()->all(), '');
 
             } catch(\Exception $exception) {

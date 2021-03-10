@@ -17,14 +17,15 @@ export default {
     },
 
     mounted() {
-        this.startProcessing();
-        // setTimeout(()=>{
-        //     this.startProcessing();
-        // }, 3000);
-        //
-        setTimeout(()=>{
-            this.finishProcessing();
-        }, 9000);
+        let that = this;
+
+        that.request({
+            service : that.api['spotify'].account(),
+            delayedResponse : true,
+            successCallback : (response) => {
+                console.log(response);
+            }
+        });
     }
 }
 </script>

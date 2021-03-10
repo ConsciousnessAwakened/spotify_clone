@@ -6,7 +6,7 @@ export default {
         address : {
             authorization : 'https://accounts.spotify.com',
             token : 'https://accounts.spotify.com/api/token',
-            library : 'https://api.spotify.com',
+            library : 'https://api.spotify.com/v1',
         },
         scopes : [
             {key : 'ugc-image-upload', description : ''},

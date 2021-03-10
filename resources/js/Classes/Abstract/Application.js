@@ -6,7 +6,8 @@ export default class Application extends Api{
     constructor(attributes) {
         super({
             address : attributes.address || {},
-            scopes : attributes.scopes || []
+            scopes : attributes.scopes || [],
+            access_token : attributes.access_token || null
         });
 
         this.name = attributes.name || "application"
