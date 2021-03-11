@@ -1,3 +1,4 @@
+import * as URL from "url";
 
 export let generic = {
     startProcessing({commit}) {
@@ -35,14 +36,24 @@ export let generic = {
             commit('stateProcess', false);
 
             let errorMessage = _.get(error.response.data, 'errors') || _.get(error.response.data, 'error');
-
             errorMessage = _.isArray(errorMessage) ? errorMessage.join("\n") : errorMessage.message;
+            if (process.env.MIX_APP_DEBUG) {console.log(errorMessage); alert(errorMessage);}
 
-            alert(errorMessage);
+            let host = URL.parse(error.response.config.url.toString()).host.split(".");
 
-            if (process.env.MIX_APP_DEBUG) {
-                console.log(errorMessage);
+            if (_.isEqual(host[0], 'api')) {
+                switch (errorMessage) {
+
+                    case state.api[host[1]].responses.error.token.expired.message:
+                        state.api[host[1]].authorize({
+                            client_id : state.app.instance.id,
+                            redirect_uri : state.app.instance.redirect_uri,
+                            state : state.app.instance.state
+                        });
+                        break;
+                }
             }
+
         }).then(function () {
 
         });
@@ -50,5 +61,16 @@ export let generic = {
 }
 
 export default {
-    ...generic
+    ...generic,
+
+    appState({commit}, payload) {
+
+        commit('appInstanceState', payload.state);
+    },
+
+    appApi({commit}, payload) {
+
+        commit('appInstanceState', payload.state);
+        commit('appInstanceApi', payload.api);
+    }
 }

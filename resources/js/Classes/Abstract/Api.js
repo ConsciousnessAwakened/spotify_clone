@@ -9,7 +9,7 @@ export default class Api {
         }
 
         this.scopes = attributes.scopes;
-        this.access_token = attributes.access_token;
+        this.responses = attributes.responses;
     }
 
     get authorizationAddress() {

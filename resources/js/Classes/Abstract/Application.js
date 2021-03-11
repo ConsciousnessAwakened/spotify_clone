@@ -7,10 +7,12 @@ export default class Application extends Api{
         super({
             address : attributes.address || {},
             scopes : attributes.scopes || [],
-            access_token : attributes.access_token || null
+            responses : attributes.responses || {}
         });
 
-        this.name = attributes.name || "application"
+        this.name = attributes.name || "application";
+        this.state = attributes.state || null;
+        this.api = attributes.api || null;
     }
 
     get appName() {

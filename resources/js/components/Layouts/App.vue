@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="overflow-hidden">
         <warping-cube :processing="app.status.processing"/>
         <slot></slot>
     </div>
@@ -34,7 +34,13 @@ export default {
     },
 
     mounted() {
+        let that = this;
 
+        console.log("App Mounted");
+
+        if (!_.isEmpty(that.$page.props.state)) {
+            that.appState({state : that.$page.props.state});
+        }
     },
 
     methods: {

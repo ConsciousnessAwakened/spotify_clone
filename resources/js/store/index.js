@@ -16,7 +16,9 @@ export default new Vuex.Store({
             instance : new Client({
                 id : process.env.MIX_APP_ID,
                 secret : process.env.MIX_APP_SECRET,
-                redirect_uri : process.env.MIX_APP_CALLBACK
+                redirect_uri : process.env.MIX_APP_CALLBACK,
+                state : null,
+                api : null
             }),
             service : services,
             status : {

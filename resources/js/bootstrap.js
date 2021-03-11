@@ -1,3 +1,5 @@
+import * as URL from "url";
+
 window._ = require('lodash');
 
 /**
