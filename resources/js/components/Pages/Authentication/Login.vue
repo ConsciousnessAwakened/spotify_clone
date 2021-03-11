@@ -39,15 +39,20 @@ export default {
             let that = this;
             let state = Text.random(10);
 
+            that.appApi({
+                api : app,
+                state : state
+            });
+
             that.request({
                 service : that.service.updateApiAuthorizationState,
                 delayedResponse : true,
-                args : { data : state },
+                args : { data : that.app.instance.state },
                 successCallback : () => {
-                    that.api[app].authorize({
+                    that.api[that.app.instance.api].authorize({
                         client_id : that.app.instance.id,
                         redirect_uri : that.app.instance.redirect_uri,
-                        state : state
+                        state : that.app.instance.state
                     })
                 }
             });

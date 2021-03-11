@@ -15,7 +15,9 @@ export default {
         ...mapActions([
             'startProcessing',
             'finishProcessing',
-            'request'
+            'request',
+            'appState',
+            'appApi'
         ])
     }
 }

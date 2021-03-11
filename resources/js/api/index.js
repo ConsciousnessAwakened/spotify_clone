@@ -28,6 +28,16 @@ export default {
             {key : 'user-library-read', description : ''},
             {key : 'user-read-email', description : ''},
             {key : 'user-read-private', description : ''}
-        ]
+        ],
+        responses : {
+            error : {
+                token : {
+                    expired : {
+                        code : 401,
+                        message : 'The access token expired'
+                    }
+                }
+            }
+        }
     })
 }
