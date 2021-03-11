@@ -25,8 +25,16 @@ export default {
 
     },
 
+    beforeCreate() {
+        let that = this;
+
+        if (!_.isEmpty(that.$page.props.access_token)) {
+            window.crossDomain.defaults.headers.common['Authorization'] = `Bearer ${that.$page.props.access_token}`;
+        }
+    },
+
     mounted() {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${this.$page.props.access_token}`;
+
     },
 
     methods: {

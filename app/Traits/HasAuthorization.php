@@ -10,4 +10,9 @@ trait HasAuthorization
     {
         return Session::get('state') == $state;
     }
+
+    public function hasAccessToken(): bool
+    {
+        return Session::has('access_token') && !is_null(Session::get('access_token'));
+    }
 }

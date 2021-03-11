@@ -1,12 +1,12 @@
 export default {
 
     updateApiAuthorizationState(args) {
-        return axios.post('/state', {
+        return originDomain.post('/state', {
             state : args.data
         })
     },
 
     confirmApiAuthorization(args) {
-        return axios.post('/callback', args.data)
+        return originDomain.post('/callback', args.data)
     }
 }

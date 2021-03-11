@@ -7,7 +7,7 @@ import services from "./services";
 import api from "../api";
 import Client from "../Classes/Concrete/Client";
 
-Vue.use(Vuex);
+window.Vue.use(Vuex);
 
 export default new Vuex.Store({
     state : {
