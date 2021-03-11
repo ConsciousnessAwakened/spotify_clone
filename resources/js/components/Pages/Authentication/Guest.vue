@@ -20,14 +20,30 @@ export default {
         let that = this
 
         if(Uri.hasValueAndProperty('hash', 'access_token')) {
+            that.authorized({data : Uri.toObject('hash')});
+
+        } else if (!_.isEmpty(that.$page.props.access_token) && !_.isEmpty(that.$page.props.state)) {
+            that.authorized({
+                data : {
+                    access_token : that.$page.props.access_token,
+                    state : that.$page.props.state
+                }
+            });
+        }
+    },
+
+    methods: {
+        authorized(args) {
+            let that = this;
+
             that.request({
                 service : that.service.confirmApiAuthorization,
-                delayedResponse : true,
-                args : { data : Uri.toObject('hash') },
+                args : args,
                 successCallback : (response) => {
                     if (response.data['isSuccessful']) that.$inertia.get('/welcome');
                 }
             });
+
         }
     }
 }

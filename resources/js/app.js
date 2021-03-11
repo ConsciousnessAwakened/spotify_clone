@@ -8,13 +8,13 @@ import { InertiaProgress } from '@inertiajs/progress';
 
 InertiaProgress.init()
 
-Vue.mixin(Core);
-Vue.use(plugin);
+window.Vue.mixin(Core);
+window.Vue.use(plugin);
 
 Inertia.on('start', (event) => {});
 Inertia.on('finish', (event) => {});
 
-new Vue({
+new window.Vue({
     el: '#app',
     store,
     mounted() {this.finishProcessing()},

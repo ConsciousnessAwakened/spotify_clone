@@ -2,15 +2,17 @@
 
 namespace App\Http\Middleware;
 
+use App\Traits\HasAuthorization;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use function PHPUnit\Framework\isEmpty;
 
 class HasValidAccessToken
 {
+    use HasAuthorization;
+
     /**
-     * Request must have access token
+     * Request must have valid access token
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -18,9 +20,9 @@ class HasValidAccessToken
      */
     public function handle(Request $request, Closure $next)
     {
-        \Log::debug(print_r(Session::all(), true));
+        \Log::debug(collect(Session::all())->only(['state', 'access_token'])->toArray());
 
-        return Session::has('access_token') && !is_null(Session::get('access_token'))
+        return $this->hasAccessToken()
             ? $next($request)
             : redirect('/');
     }

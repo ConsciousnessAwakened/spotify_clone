@@ -19,6 +19,6 @@ export default class Spotify extends Application{
     }
 
     account() {
-        return axios.get(`${this.libraryAddress}/me`);
+        return window.crossDomain.get(`${this.libraryAddress}/me`);
     }
 }

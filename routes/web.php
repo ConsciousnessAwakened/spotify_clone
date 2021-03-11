@@ -20,7 +20,5 @@ Route::post('/state', [\App\Http\Controllers\AuthorizationController::class, 'st
 
 Route::middleware(['authorized'])->group(function () {
 
-    Route::get('/welcome', function(){
-        return inertia('Pages/Main/Welcome');
-    });
+    Route::get('/welcome', function(){return inertia('Pages/Main/Welcome');});
 });
