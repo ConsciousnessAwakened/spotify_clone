@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Traits\HasAuthorization;
+use App\Traits\HasApiAuthorization;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Session;
 
 class AuthorizationController extends Controller
 {
-    use HasAuthorization;
+    use HasApiAuthorization;
 
     public function index()
     {
@@ -21,6 +21,7 @@ class AuthorizationController extends Controller
             if($this->stateValid(request()->input('state'))){
 
                 Session::put('access_token', request()->input('access_token'));
+                \Log::debug(collect(Session::all())->only(['state', 'access_token'])->toArray());
 
                 return $this->successfulResponse([], '');
             } else {
@@ -32,13 +33,14 @@ class AuthorizationController extends Controller
         return $callback;
     }
 
-    public function storeState(): JsonResponse
+    public function askAuthorization(): JsonResponse
     {
         if (request()->wantsJson()) {
 
             try {
                 Session::flush();
                 Session::put('state', request()->input('state'));
+                Session::put('api', request()->input('api'));
                 \Log::debug(print_r(Session::all(), true));
 
                 return $this->successfulResponse(request()->all(), '');

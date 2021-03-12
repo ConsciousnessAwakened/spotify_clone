@@ -16,7 +16,7 @@ Route::get('/', [\App\Http\Controllers\AuthorizationController::class, 'index'])
 Route::get('/callback', [\App\Http\Controllers\AuthorizationController::class, 'index']);
 Route::post('/callback', [\App\Http\Controllers\AuthorizationController::class, 'index']);
 
-Route::post('/state', [\App\Http\Controllers\AuthorizationController::class, 'storeState']);
+Route::post('/authorization/ask', [\App\Http\Controllers\AuthorizationController::class, 'askAuthorization']);
 
 Route::middleware(['authorized'])->group(function () {
 

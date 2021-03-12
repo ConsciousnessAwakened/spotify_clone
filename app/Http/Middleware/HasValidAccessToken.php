@@ -2,14 +2,14 @@
 
 namespace App\Http\Middleware;
 
-use App\Traits\HasAuthorization;
+use App\Traits\HasApiAuthorization;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class HasValidAccessToken
 {
-    use HasAuthorization;
+    use HasApiAuthorization;
 
     /**
      * Request must have valid access token
@@ -22,7 +22,7 @@ class HasValidAccessToken
     {
         \Log::debug(collect(Session::all())->only(['state', 'access_token'])->toArray());
 
-        return $this->hasAccessToken()
+        return $this->has('access_token')
             ? $next($request)
             : redirect('/');
     }

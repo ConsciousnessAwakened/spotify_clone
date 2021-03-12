@@ -2,12 +2,15 @@
 
 namespace App\Http\Middleware;
 
+use App\Traits\HasApiAuthorization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
 {
+    use HasApiAuthorization;
+
     /**
      * The root template that's loaded on the first page visit.
      *
@@ -38,13 +41,9 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         return array_merge(parent::share($request), [
-            'access_token' => Session::has('access_token') && !is_null(Session::get('access_token'))
-                ? Session::get('access_token')
-                : null,
-
-            'state' => Session::has('state') && !is_null(Session::get('state'))
-                ? Session::get('state')
-                : null
+            'api' => $this->getIfExists('api'),
+            'access_token' => $this->getIfExists('access_token'),
+            'state' => $this->getIfExists('state')
         ]);
     }
 }

@@ -55,7 +55,7 @@ export default {
         let that = this;
 
         that.request({
-            service : that.api['spotify'].account(),
+            service : that.api[that.app.instance.api].account(),
             delayedResponse : true,
             successCallback : (response) => {
                 that.account = response.data

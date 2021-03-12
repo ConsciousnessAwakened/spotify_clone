@@ -28,19 +28,26 @@ export default {
     beforeCreate() {
         let that = this;
 
+        console.log("App Before Create");
+
         if (!_.isEmpty(that.$page.props.access_token)) {
             window.crossDomain.defaults.headers.common['Authorization'] = `Bearer ${that.$page.props.access_token}`;
         }
     },
 
-    mounted() {
+    created() {
         let that = this;
 
-        console.log("App Mounted");
+        console.log("App Created");
 
-        if (!_.isEmpty(that.$page.props.state)) {
-            that.appState({state : that.$page.props.state});
-        }
+        that.stateAppAuthorization({
+            api : _.get(that.$page.props, 'api', null),
+            state : _.get(that.$page.props, 'state', null)
+        });
+    },
+
+    mounted() {
+        console.log("App Mounted");
     },
 
     methods: {

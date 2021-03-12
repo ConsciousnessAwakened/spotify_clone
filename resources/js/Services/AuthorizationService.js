@@ -1,12 +1,13 @@
 export default {
 
-    updateApiAuthorizationState(args) {
-        return originDomain.post('/state', {
-            state : args.data
+    authorize(args) {
+        return originDomain.post('/authorization/ask', {
+            state : args.state,
+            api : args.api
         })
     },
 
-    confirmApiAuthorization(args) {
-        return originDomain.post('/callback', args.data)
+    confirm(args) {
+        return originDomain.post('/callback', args)
     }
 }
