@@ -9,31 +9,31 @@
         <div v-if="processing" class="cubeContainer absolute z-50 h-full w-full flex items-center justify-center">
             <div class="cube">
                 <div class="sides">
-                    <div class="top bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="top bg-gradient-to-r from-codeBlue-primary"></div>
                     <div class="anotherTop bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="topMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="topMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="topMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
 
-                    <div class="right bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="right bg-gradient-to-r from-codeBlue-primary"></div>
                     <div class="anotherRight bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="rightMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="rightMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="rightMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
 
-                    <div class="left bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="left bg-gradient-to-r from-codeBlue-primary"></div>
                     <div class="anotherLeft bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="leftMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="leftMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="leftMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
 
-                    <div class="front bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="front bg-gradient-to-r from-codeBlue-primary"></div>
                     <div class="anotherFront bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="frontMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="frontMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="frontMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
 
-                    <div class="back bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="back bg-gradient-to-r from-codeBlue-primary"></div>
                     <div class="anotherBack bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="backMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
                     <div class="backMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
@@ -95,7 +95,7 @@ $delayLimit: 30;
     //animation: rotate 20s linear infinite;
     //animation-delay: 1s;
     transform-style: preserve-3d;
-    transform: rotateX(-55deg) rotateY(45deg);
+    transform: rotateX(-47deg) rotateY(45deg);
 }
 
 @mixin initialMirror($name, $rotate, $delay) {
@@ -133,7 +133,7 @@ $delayLimit: 30;
 
     .#{$name} {
         opacity:                0;
-        animation:              #{$name}-animation 3s ease-out infinite;
+        animation:              #{$name}-animation 2s ease-out infinite;
         animation-delay:        $delay * 100ms;
         animation-fill-mode:    forwards;
         transform:              #{$rotate} translateZ($distance);
