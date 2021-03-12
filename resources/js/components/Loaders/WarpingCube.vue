@@ -66,7 +66,7 @@ export default {
 
 $size: 150px;
 $panelOrigin: 0;
-$border: 10px;
+$border: 6px;
 $delayLimit: 30;
 
 .cubeContainer {
@@ -87,15 +87,15 @@ $delayLimit: 30;
 }
 
 @keyframes rotate {
-    0%      { transform: rotateX(-37.5deg) rotateY(45deg); }
-    100%    { transform: rotateX(-37.5deg) rotateY(405deg); }
+    0%      { transform: rotateX(-55deg) rotateY(45deg); }
+    100%    { transform: rotateX(-55deg) rotateY(405deg); }
 }
 
 .sides {
-    animation: rotate 20s linear infinite;
-    animation-delay: 1s;
+    //animation: rotate 20s linear infinite;
+    //animation-delay: 1s;
     transform-style: preserve-3d;
-    transform: rotateX(-37.5deg) rotateY(45deg);
+    transform: rotateX(-55deg) rotateY(45deg);
 }
 
 @mixin initialMirror($name, $rotate, $delay) {
@@ -124,16 +124,16 @@ $delayLimit: 30;
 
     @keyframes #{$name}-animation {
         0%      { opacity: 0;   transform: #{$rotate} translateZ($distance)}
-        40%     { opacity: 0.2; transform: #{$rotate} translateZ($distance)}
-        60%     { opacity: 0.5; transform: #{$rotate} translateZ($distance)}
-        70%     { opacity: 0.7; transform: #{$rotate} translateZ(($size + $border) / 2) }
+        40%     { opacity: 0; transform: #{$rotate} translateZ($distance)}
+        60%     { opacity: 0.1; transform: #{$rotate} translateZ($distance)}
+        70%     { opacity: 0.5; transform: #{$rotate} translateZ(($size + $border) / 2) }
         80%     { opacity: 1;   transform: #{$rotate} translateZ(($size + $border) / 2) }
         100%    { opacity: 0;   transform: #{$rotate} translateZ(($size + $border) / 2) }
     }
 
     .#{$name} {
         opacity:                0;
-        animation:              #{$name}-animation 3s ease-in infinite;
+        animation:              #{$name}-animation 3s ease-out infinite;
         animation-delay:        $delay * 100ms;
         animation-fill-mode:    forwards;
         transform:              #{$rotate} translateZ($distance);
