@@ -83,8 +83,10 @@ export let generic = {
             } else if (error.request) {
                 // client never received a response, or request never left
                 console.log("NO RESPONSE RECEIVED / REQUEST FAILED TO SEND");
+                alert("NO RESPONSE RECEIVED / REQUEST FAILED TO SEND");
             } else {
                 console.log(error);
+                alert(error);
             }
 
         }).then(function () {
