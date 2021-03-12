@@ -25,6 +25,10 @@ export let generic = {
 
         service.then(function (response) {
 
+            if (process.env.MIX_APP_DEBUG) {
+                console.log(response);
+            }
+
             setTimeout(() => {
 
                 commit('stateProcess', false);
@@ -35,23 +39,52 @@ export let generic = {
 
             commit('stateProcess', false);
 
-            let errorMessage = _.get(error.response.data, 'errors') || _.get(error.response.data, 'error');
-            errorMessage = _.isArray(errorMessage) ? errorMessage.join("\n") : errorMessage.message;
-            if (process.env.MIX_APP_DEBUG) {console.log(errorMessage); alert(errorMessage);}
+            if (error.response) {
 
-            let host = URL.parse(error.response.config.url.toString()).host.split(".");
+                let errorMessage = _.get(error.response.data, 'errors') || _.get(error.response.data, 'error');
 
-            if (_.isEqual(host[0], 'api')) {
-                switch (errorMessage) {
+                errorMessage = _.isArray(errorMessage)
+                    ? errorMessage.join("\n")
+                    : errorMessage.message;
 
-                    case state.api[host[1]].responses.error.token.expired.message:
-                        state.api[host[1]].authorize({
-                            client_id : state.app.instance.id,
-                            redirect_uri : state.app.instance.redirect_uri,
-                            state : state.app.instance.state
-                        });
-                        break;
+                if (error.response.config.url.startsWith('/')) {
+                    // Client Error Response
+                    if (process.env.MIX_APP_DEBUG) {
+                        console.log(errorMessage);
+                        alert(errorMessage);
+                        console.log(`ERROR FROM CLIENT`);
+                    }
+
+                } else {
+                    // Api Error Response
+                    let host = URL.parse(error.response.config.url).host.split(".");
+
+                    if (process.env.MIX_APP_DEBUG) {
+                        console.log(errorMessage);
+                        alert(errorMessage);
+                        console.log(`ERROR FROM ${host[1]}`);
+                    }
+
+                    if (_.isEqual(host[0], 'api')) {
+                        switch (errorMessage) {
+
+                            // Handle Expired Token to Request a new one
+                            case state.api[host[1]].responses.error.token.expired.message:
+                                state.api[host[1]].authorize({
+                                    client_id : state.app.instance.id,
+                                    redirect_uri : state.app.instance.redirect_uri,
+                                    state : state.app.instance.state
+                                });
+                                break;
+                        }
+                    }
                 }
+
+            } else if (error.request) {
+                // client never received a response, or request never left
+                console.log("NO RESPONSE RECEIVED / REQUEST FAILED TO SEND");
+            } else {
+                console.log(error);
             }
 
         }).then(function () {
@@ -63,14 +96,39 @@ export let generic = {
 export default {
     ...generic,
 
-    appState({commit}, payload) {
-
-        commit('appInstanceState', payload.state);
-    },
-
-    appApi({commit}, payload) {
-
+    stateAppAuthorization({commit}, payload) {
         commit('appInstanceState', payload.state);
         commit('appInstanceApi', payload.api);
+    },
+
+    askAuthorization({state, commit, dispatch}, payload) {
+
+        dispatch('request', {
+            service : state.app.service.authorize,
+            delayedResponse : true,
+            args : {
+                state : payload.state,
+                api : payload.api
+            },
+            successCallback : () => {
+                state.api[payload.api].authorize({
+                    client_id : state.app.instance.id,
+                    redirect_uri : state.app.instance.redirect_uri,
+                    state : payload.state
+                });
+            }
+        });
+    },
+
+    authorized({state, dispatch}, payload) {
+
+        dispatch('request', {
+            service : state.app.service.confirm(payload),
+            successCallback : (response) => {
+                if (response.data['isSuccessful']){
+                    state.inertia.get('/welcome');
+                }
+            }
+        });
     }
 }

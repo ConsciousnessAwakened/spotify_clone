@@ -17,7 +17,11 @@ Inertia.on('finish', (event) => {});
 new window.Vue({
     el: '#app',
     store,
-    mounted() {this.finishProcessing()},
+    mounted() {
+        console.log("Vue Mounted");
+        this.$store.state.inertia = this.$inertia;
+        this.finishProcessing()
+    },
     render: h => h(InertiaApp, {
         props: {
             initialPage: JSON.parse(document.getElementById('app').dataset.page),

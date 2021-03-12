@@ -30,31 +30,11 @@
 export default {
     name: "Login",
 
-    mounted() {
-
-    },
-
     methods: {
         continueWith(app) {
-            let that = this;
-            let state = Text.random(10);
-
-            that.appApi({
+            this.askAuthorization({
                 api : app,
-                state : state
-            });
-
-            that.request({
-                service : that.service.updateApiAuthorizationState,
-                delayedResponse : true,
-                args : { data : that.app.instance.state },
-                successCallback : () => {
-                    that.api[that.app.instance.api].authorize({
-                        client_id : that.app.instance.id,
-                        redirect_uri : that.app.instance.redirect_uri,
-                        state : that.app.instance.state
-                    })
-                }
+                state : Text.random(10)
             });
         }
     }

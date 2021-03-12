@@ -13,11 +13,12 @@ export default {
 
     methods: {
         ...mapActions([
+            'request',
             'startProcessing',
             'finishProcessing',
-            'request',
-            'appState',
-            'appApi'
+            'stateAppAuthorization',
+            'askAuthorization',
+            'authorized'
         ])
     }
 }
