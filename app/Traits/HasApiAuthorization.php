@@ -1,7 +1,7 @@
 <?php
 
-
 namespace App\Traits;
+
 use Illuminate\Support\Facades\Session;
 
 trait HasApiAuthorization
@@ -19,5 +19,11 @@ trait HasApiAuthorization
     public function getIfExists($key)
     {
         return $this->has($key) ? Session::get($key) : null;
+    }
+
+    public function forgetAndPut($key, $value)
+    {
+        Session::forget($key);
+        Session::put($key, $value);
     }
 }

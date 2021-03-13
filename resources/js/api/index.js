@@ -35,6 +35,10 @@ export default {
                     expired : {
                         code : 401,
                         message : 'The access token expired'
+                    },
+                    invalid : {
+                        code : 401,
+                        message : 'Invalid access token'
                     }
                 }
             }
