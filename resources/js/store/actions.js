@@ -10,7 +10,10 @@ export let generic = {
     },
 
     request({state, commit}, payload) {
-        commit('stateProcess', true);
+
+        if (_.get(payload, 'animateProcess', true)) {
+            commit('stateProcess', true);
+        }
 
         //console.log(payload);
 
@@ -68,14 +71,16 @@ export let generic = {
                     if (_.isEqual(host[0], 'api')) {
                         switch (errorMessage) {
 
-                            // Handle Expired Token to Request a new one
+                            // Handle Expired/Invalid Token to Request a new one
                             case state.api[host[1]].responses.error.token.expired.message:
+                            case state.api[host[1]].responses.error.token.invalid.message:
                                 state.api[host[1]].authorize({
                                     client_id : state.app.instance.id,
                                     redirect_uri : state.app.instance.redirect_uri,
                                     state : state.app.instance.state
                                 });
                                 break;
+                            default: alert("SOMETHING WENT WRONG");
                         }
                     }
                 }
@@ -126,6 +131,7 @@ export default {
 
         dispatch('request', {
             service : state.app.service.confirm(payload),
+            animateProcess : false,
             successCallback : (response) => {
                 if (response.data['isSuccessful']){
                     state.inertia.get('/welcome');

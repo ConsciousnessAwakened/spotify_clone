@@ -20,7 +20,7 @@ class HasValidAccessToken
      */
     public function handle(Request $request, Closure $next)
     {
-        \Log::debug(collect(Session::all())->only(['state', 'access_token'])->toArray());
+        \Log::debug(["Middleware Session" => collect(Session::all())->only(['api', 'state', 'access_token'])->toArray()]);
 
         return $this->has('access_token')
             ? $next($request)

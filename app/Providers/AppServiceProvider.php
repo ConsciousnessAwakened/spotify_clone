@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\Blueprint\ExpiredTokenInterface;
+use App\Services\Concrete\ExpiredTokenService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 
     /**
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->singleton(ExpiredTokenInterface::class, ExpiredTokenService::class);
     }
 }

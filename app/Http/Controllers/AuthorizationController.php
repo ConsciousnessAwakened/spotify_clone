@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Blueprint\ExpiredTokenInterface;
 use App\Traits\HasApiAuthorization;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Session;
@@ -9,6 +10,12 @@ use Illuminate\Support\Facades\Session;
 class AuthorizationController extends Controller
 {
     use HasApiAuthorization;
+
+    public function __construct()
+    {
+        //$expiredToken = 'BQBqujjHm_Afmj8Rka8TyLFt-VjH5RUvLVS7LqPZ43_8jXFo36KDDL6gSlTcdlym7Y3O1DjdEfnbIVxKS5nzh0Ubej5EQE9pIU-EYwsd_ZBS9LMbgLRoixXzhzDghKezUtoVFHYA3M3Gh7A1YXVcQDp-1D92Pq-KRRYnxbb00bxImNlc7i71dV-AmpoP6qDzdilpiF2Ou4uMXbeIX1LPr7VMR-UhOLqbyKb5-RXlYOWuahKoka210qWTlpGBMotMxplvioca3UMDuncroNHmI0tai0yJiGKjjqEJCWhEYcQDVA';
+        //\App::make(ExpiredTokenInterface::class)->session('not_a_token');
+    }
 
     public function index()
     {
@@ -20,8 +27,9 @@ class AuthorizationController extends Controller
 
             if($this->stateValid(request()->input('state'))){
 
-                Session::put('access_token', request()->input('access_token'));
-                \Log::debug(collect(Session::all())->only(['state', 'access_token'])->toArray());
+                $this->forgetAndPut('access_token', request()->input('access_token'));
+
+                \Log::debug(["Callback Post Session" => collect(Session::all())->only(['api', 'state', 'access_token'])->toArray()]);
 
                 return $this->successfulResponse([], '');
             } else {
@@ -38,12 +46,12 @@ class AuthorizationController extends Controller
         if (request()->wantsJson()) {
 
             try {
-                Session::flush();
-                Session::put('state', request()->input('state'));
-                Session::put('api', request()->input('api'));
-                \Log::debug(print_r(Session::all(), true));
+                $this->forgetAndPut('state', request()->input('state'));
+                $this->forgetAndPut('api', request()->input('api'));
 
-                return $this->successfulResponse(request()->all(), '');
+                \Log::debug(["Ask Authorization Session" => collect(Session::all())->only(['api', 'state', 'access_token'])->toArray()]);
+
+                return $this->successfulResponse([], '');
 
             } catch(\Exception $exception) {
 

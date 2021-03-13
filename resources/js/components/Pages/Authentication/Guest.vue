@@ -1,6 +1,8 @@
 <template>
     <app>
-        <login />
+        <div v-if="askAuthorizationSuggested" class="animate-fade-in-down">
+            <login />
+        </div>
     </app>
 </template>
 
@@ -16,6 +18,12 @@ export default {
         App
     },
 
+    data() {
+        return {
+            askAuthorizationSuggested : false
+        }
+    },
+
     mounted() {
         let that = this
 
@@ -27,6 +35,8 @@ export default {
                 access_token : that.$page.props.access_token,
                 state : that.$page.props.state
             });
+        } else {
+            this.askAuthorizationSuggested = true;
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Hydrations;
+namespace App\Models\Hydrations\Spotify;
 
 use Illuminate\Database\Eloquent\Model;
 
