@@ -1,6 +1,4 @@
 
-const colors = require('tailwindcss/colors')
-
 module.exports = {
     purge: [
         './resources/**/*.blade.php',
@@ -14,6 +12,20 @@ module.exports = {
         extend: {
             fontFamily : {
                 sans : ['Inter', 'Roboto']
+            },
+            colors : {
+                codeBlue : {
+                    primary : '#76b8f1',
+                    primaryTrans : 'rgba(118, 184, 241, 0.5)',
+                    lightTrans : 'rgba(181,197,221,0.5)',
+                    secondary : '#f2f2f2'
+                },
+                spotify : {
+                    green : 'rgb(30, 215, 96)',
+                    darkGreen : '#1DB954',
+                    white : 'rgb(255, 255, 255)',
+                    black : 'rgb(25, 20, 20)',
+                },
             },
             keyframes: {
                 'fade-in-down': {
@@ -77,15 +89,6 @@ module.exports = {
                 'InstallApp-cover-playbar' : '358px',
 
                 'InstallApp-playbar' : '128px'
-            }
-        },
-        colors: {
-            ...colors,
-            codeBlue : {
-                primary : '#76b8f1',
-                primaryTrans : 'rgba(118, 184, 241, 0.5)',
-                lightTrans : 'rgba(181,197,221,0.5)',
-                secondary : '#f2f2f2'
             }
         }
     },
