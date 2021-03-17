@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Support\Facades\Session;
 
-trait HasApiAuthorization
+trait SessionHandler
 {
     public function stateValid($state): bool
     {

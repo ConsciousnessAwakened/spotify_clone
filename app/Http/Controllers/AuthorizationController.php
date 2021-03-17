@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Services\Blueprint\ExpiredTokenInterface;
-use App\Traits\HasApiAuthorization;
+use App\Traits\SessionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Session;
 
 class AuthorizationController extends Controller
 {
-    use HasApiAuthorization;
+    use SessionHandler;
 
     public function __construct()
     {

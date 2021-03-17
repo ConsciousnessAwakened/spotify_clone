@@ -2,14 +2,14 @@
 
 namespace App\Http\Middleware;
 
-use App\Traits\HasApiAuthorization;
+use App\Traits\SessionHandler;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class HasValidAccessToken
 {
-    use HasApiAuthorization;
+    use SessionHandler;
 
     /**
      * Request must have valid access token

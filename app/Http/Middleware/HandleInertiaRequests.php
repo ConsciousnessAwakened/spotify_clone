@@ -2,14 +2,13 @@
 
 namespace App\Http\Middleware;
 
-use App\Traits\HasApiAuthorization;
+use App\Traits\SessionHandler;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
 {
-    use HasApiAuthorization;
+    use SessionHandler;
 
     /**
      * The root template that's loaded on the first page visit.
