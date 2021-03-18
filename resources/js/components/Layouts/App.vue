@@ -60,7 +60,7 @@ export default {
                 status : false,
                 src : ''
             },
-            playerIndex : 2,
+            playerIndex : 0,
             media : [
                 //clouds
                 {
@@ -82,18 +82,18 @@ export default {
                     link : 'https://player.vimeo.com/external/314181352.hd.mp4?s=03e7a8ddba6566f8a62cd7f8a8da7d79461c3dbd&profile_id=170&oauth2_token_id=57447761'
                 },
                 //lovers
-                // {
-                //     link : 'https://player.vimeo.com/external/438464616.hd.mp4?s=fea8a26dde2a1379348251c50fddbd817809979d&profile_id=169&oauth2_token_id=57447761',
-                //     file_type : 'video/mp4',
-                // },
-                // {
-                //     link : 'https://player.vimeo.com/external/459298282.hd.mp4?s=76508b6fbdd2018e7f38a4837098839a8f63b177&profile_id=170&oauth2_token_id=57447761',
-                //     file_type : 'video/mp4',
-                // },
-                // {
-                //     link : 'https://player.vimeo.com/external/433070576.hd.mp4?s=5351fdd89f3a6b929f4175fd347e9a90ef3f5f3f&profile_id=172&oauth2_token_id=57447761',
-                //     file_type : 'video/mp4',
-                // }
+                {
+                    link : 'https://player.vimeo.com/external/438464616.hd.mp4?s=fea8a26dde2a1379348251c50fddbd817809979d&profile_id=169&oauth2_token_id=57447761',
+                    file_type : 'video/mp4',
+                },
+                {
+                    link : 'https://player.vimeo.com/external/459298282.hd.mp4?s=76508b6fbdd2018e7f38a4837098839a8f63b177&profile_id=170&oauth2_token_id=57447761',
+                    file_type : 'video/mp4',
+                },
+                {
+                    link : 'https://player.vimeo.com/external/433070576.hd.mp4?s=5351fdd89f3a6b929f4175fd347e9a90ef3f5f3f&profile_id=172&oauth2_token_id=57447761',
+                    file_type : 'video/mp4',
+                },
                 {
                     link : 'https://player.vimeo.com/external/448223840.hd.mp4?s=a3b4815e7eaea16d1b65eccf9a7ddc2f6a531207&profile_id=169&oauth2_token_id=57447761'
                 },

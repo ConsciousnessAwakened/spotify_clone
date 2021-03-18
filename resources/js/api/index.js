@@ -1,4 +1,5 @@
 import Spotify from "../Classes/Concrete/Spotify";
+import Pexel from "../Classes/Concrete/Pexel";
 
 export default {
     spotify : new Spotify({
@@ -42,6 +43,12 @@ export default {
                     }
                 }
             }
+        }
+    }),
+    pexel : new Pexel({
+        name : 'pexel',
+        address : {
+            library : 'https://api.pexels.com',
         }
     })
 }
