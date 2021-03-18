@@ -28,6 +28,22 @@ module.exports = {
                 },
             },
             keyframes: {
+                'fade-in' : {
+                    '0%': {
+                        opacity: '0'
+                    },
+                    '100%': {
+                        opacity: '1'
+                    },
+                },
+                'fade-out' : {
+                    '0%': {
+                        opacity: '1'
+                    },
+                    '100%': {
+                        opacity: '0'
+                    },
+                },
                 'fade-in-down': {
                     '0%': {
                         opacity: '0',
@@ -70,10 +86,16 @@ module.exports = {
                 }
             },
             animation: {
+                'fade-in' : 'fade-in 3s ease-in-out',
+                'fade-out' : 'fade-out 3s ease-in-out',
                 'fade-in-down': 'fade-in-down 0.5s ease-out',
                 'fade-out-down': 'fade-out-down 0.5s ease-out',
                 'fade-in-up': 'fade-in-up 0.5s ease-out',
                 'fade-out-up': 'fade-out-up 0.5s ease-out'
+            },
+            transitionDuration: {
+                '1500': '1500ms',
+                '2500': '2500ms',
             },
             width : {
                 'sidebar' : '230px'
