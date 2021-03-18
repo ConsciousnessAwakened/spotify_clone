@@ -1,11 +1,9 @@
 <template>
     <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full space-y-8">
+        <div class="max-w-md w-full space-y-2">
             <div class="">
 
-                <h2 class="mt-6 text-center font-semibold text-3xl text-gray-900">
-                    <span class="text-codeBlue-primary">Definitely not</span>
-                </h2>
+                <img class="w-full" :src="'images/logos/definitely_not.png'" />
 
                 <!--<p class="mt-2 text-center text-sm text-gray-600">
                     become a patron
