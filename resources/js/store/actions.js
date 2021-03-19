@@ -44,11 +44,16 @@ export let generic = {
 
             if (error.response) {
 
-                let errorMessage = _.get(error.response.data, 'errors') || _.get(error.response.data, 'error');
+                let errorMessage = _.get(error.response.data, 'errors')
+                    || _.get(error.response.data, 'error') //Spotify Error Message
+                    || _.get(error.response.data, 'code'); //Pexel Error Message
 
-                errorMessage = _.isArray(errorMessage)
-                    ? errorMessage.join("\n")
-                    : errorMessage.message;
+                switch (typeof errorMessage) {
+                    case 'object': errorMessage = _.isArray(errorMessage)
+                        ? errorMessage.join("\n")
+                        : errorMessage.message;
+                    break;
+                }
 
                 if (error.response.config.url.startsWith('/')) {
                     // Client Error Response
@@ -69,18 +74,21 @@ export let generic = {
                     }
 
                     if (_.isEqual(host[0], 'api')) {
-                        switch (errorMessage) {
 
-                            // Handle Expired/Invalid Token to Request a new one
-                            case state.api[host[1]].responses.error.token.expired.message:
-                            case state.api[host[1]].responses.error.token.invalid.message:
-                                state.api[host[1]].authorize({
-                                    client_id : state.app.instance.id,
-                                    redirect_uri : state.app.instance.redirect_uri,
-                                    state : state.app.instance.state
-                                });
-                                break;
-                            default: alert("SOMETHING WENT WRONG");
+                        if (_.get(state.api[host[1]].responses, 'error', false)) {
+                            switch (errorMessage) {
+                                // Handle Expired/Invalid Token to Request a new one
+                                case state.api[host[1]].responses.error.token.expired.message:
+                                case state.api[host[1]].responses.error.token.invalid.message:
+                                    state.api[host[1]].authorize({
+                                        client_id : state.app.instance.id,
+                                        redirect_uri : state.app.instance.redirect_uri,
+                                        state : state.app.instance.state
+                                    });
+                                    break;
+                            }
+                        } else {
+                            alert("UNHANDLED API ERROR")
                         }
                     }
                 }
