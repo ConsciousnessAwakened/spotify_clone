@@ -7,7 +7,8 @@ export default class Application extends Api{
         super({
             address : attributes.address || {},
             scopes : attributes.scopes || [],
-            responses : attributes.responses || {}
+            responses : attributes.responses || {},
+            key : attributes.key || null,
         });
 
         this.name = attributes.name || "application";

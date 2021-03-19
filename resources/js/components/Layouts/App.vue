@@ -2,7 +2,7 @@
     <div class="overflow-hidden bg-black">
         <warping-cube :processing="app.status.processing"/>
 
-        <transition
+        <!--<transition
             enter-active-class="animate-fade-in"
             leave-active-class="animate-fade-out">
             <video v-if="playerA.status" autoplay muted class="absolute z-30 object-cover w-full h-full">
@@ -20,7 +20,7 @@
                     :src="playerB.src"
                     type="video/mp4"/>Your browser does not support the video tag.
             </video>
-        </transition>
+        </transition>-->
 
         <!--<transition
             enter-active-class="animate-fade-in"
@@ -155,7 +155,7 @@ export default {
         console.log("App Before Create");
 
         if (!_.isEmpty(that.$page.props.access_token)) {
-            window.crossDomain.defaults.headers.common['Authorization'] = `Bearer ${that.$page.props.access_token}`;
+            window[_.get(that.$page.props, 'api', 'axios')].defaults.headers.common['Authorization'] = `Bearer ${that.$page.props.access_token}`;
         }
     },
 
@@ -173,19 +173,19 @@ export default {
     mounted() {
         console.log("App Mounted");
 
-        let that = this;
-
-        that.playerA.src = that.media[that.getIndex()].link;
-        that.playerB.src = that.media[that.getIndex()].link;
-
-        setInterval(()=>{
-
-            that.playerA.status = !that.playerA.status;
-            that.playerB.status = !that.playerB.status;
-
-            that.getNewIndex();
-
-        }, 6000);
+        // let that = this;
+        //
+        // that.playerA.src = that.media[that.getIndex()].link;
+        // that.playerB.src = that.media[that.getIndex()].link;
+        //
+        // setInterval(()=>{
+        //
+        //     that.playerA.status = !that.playerA.status;
+        //     that.playerB.status = !that.playerB.status;
+        //
+        //     that.getNewIndex();
+        //
+        // }, 6000);
     },
 
     methods: {

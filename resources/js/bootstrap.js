@@ -15,10 +15,6 @@ window.originDomain.defaults.headers.common['X-Requested-With'] = 'XMLHttpReques
 window.originDomain.defaults.headers.common['Content-Type'] = 'application/json';
 window.originDomain.defaults.headers.common['Accept'] = 'application/json';
 
-window.crossDomain = axios.create();
-window.crossDomain.defaults.headers.common['Content-Type'] = 'application/json';
-window.crossDomain.defaults.headers.common['Accept'] = 'application/json';
-
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

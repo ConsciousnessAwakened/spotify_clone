@@ -10,6 +10,7 @@ export default class Api {
 
         this.scopes = attributes.scopes;
         this.responses = attributes.responses;
+        this.key = attributes.key;
     }
 
     get authorizationAddress() {
