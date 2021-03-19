@@ -19,6 +19,6 @@ export default class Spotify extends Application{
     }
 
     account() {
-        return window.crossDomain.get(`${this.libraryAddress}/me`);
+        return window[this.appName].get(`${this.libraryAddress}/me`);
     }
 }

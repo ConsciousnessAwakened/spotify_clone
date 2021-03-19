@@ -19,8 +19,22 @@ new window.Vue({
     store,
     mounted() {
         console.log("Vue Mounted");
-        this.$store.state.inertia = this.$inertia;
-        this.finishProcessing()
+        let that = this;
+
+        that.$store.state.inertia = that.$inertia;
+
+        Object.keys(that.$store.state.api).forEach((api)=>{
+
+            window[api] = axios.create();
+            window[api].defaults.headers.common['Content-Type'] = 'application/json';
+            window[api].defaults.headers.common['Accept'] = 'application/json';
+
+            if (!_.isEmpty(that.$store.state.api[api].key)){
+                window[api].defaults.headers.common['Authorization'] = `${that.$store.state.api[api].key}`;
+            }
+        });
+
+        that.finishProcessing();
     },
     render: h => h(InertiaApp, {
         props: {

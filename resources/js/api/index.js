@@ -49,6 +49,7 @@ export default {
         name : 'pexel',
         address : {
             library : 'https://api.pexels.com',
-        }
+        },
+        key : process.env.MIX_PEXEL_TOKEN
     })
 }
