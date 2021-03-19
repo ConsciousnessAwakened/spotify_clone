@@ -1,5 +1,5 @@
 import Spotify from "../Classes/Concrete/Spotify";
-import Pexel from "../Classes/Concrete/Pexel";
+import Pexels from "../Classes/Concrete/Pexels";
 
 export default {
     spotify : new Spotify({
@@ -45,11 +45,32 @@ export default {
             }
         }
     }),
-    pexel : new Pexel({
-        name : 'pexel',
+    pexels : new Pexels({
+        name : 'pexels',
         address : {
             library : 'https://api.pexels.com',
         },
-        key : process.env.MIX_PEXEL_TOKEN
+        key : process.env.MIX_PEXEL_TOKEN,
+        responses : {
+            image : {
+                key : 'photos',
+                source : function(item) {
+                    return item.src.large2x;
+                }
+            },
+            video : {
+                key : 'videos',
+                source : function(item) {
+                    let src = item.video_files.filter(video => video.quality == 'hd');
+
+                    if (src.length) {
+                        return src[0].link;
+                    }
+
+                    src = item.video_files.filter(video => video.quality == 'sd');
+                    return src[0].link;
+                }
+            }
+        }
     })
 }
