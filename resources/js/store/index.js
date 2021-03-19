@@ -23,6 +23,10 @@ export default new Vuex.Store({
             service : services,
             status : {
                 processing : true
+            },
+            overlay : {
+                api : 'pexels',
+                type : OVERLAY_TYPES.VIDEO
             }
         },
         notification : new Statement({types : ['info', 'warning']})
