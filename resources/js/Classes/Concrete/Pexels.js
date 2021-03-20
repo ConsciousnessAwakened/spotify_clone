@@ -6,6 +6,14 @@ export default class Pexels extends Application{
         super({...attributes});
     }
 
+    meta(args) {
+        return {
+            query : args.search.search,
+            page : args.search.page,
+            per_page : args.search.per_page
+        }
+    }
+
     image(args) {
         return window[this.appName].get(`${this.libraryAddress}/v1/search/`, args);
     }

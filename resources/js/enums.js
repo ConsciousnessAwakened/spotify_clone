@@ -12,7 +12,12 @@ window.DOCUMENT_READY_STATE_DESCRITION = {
     "loading"       : 'Loading DOM'
 }
 
-window.OVERLAY_TYPES = {
+window.OVERLAY_TYPE = {
     IMAGE : 'image',
     VIDEO : 'video'
+}
+
+window.OVERLAY_QUALITY = {
+    HIGH : 'hd',
+    LOW : 'sd'
 }
