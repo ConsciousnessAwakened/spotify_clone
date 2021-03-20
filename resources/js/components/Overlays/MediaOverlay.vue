@@ -26,6 +26,7 @@
 
 <script>
 import Fade from "../Transitions/Fade";
+import {mapGetters} from "vuex";
 
 export default {
     name: "MediaOverlay",
@@ -34,26 +35,34 @@ export default {
         Fade
     },
 
-    props: {
-        type: {
-            type: String,
-            default: null
-        }
+    // props: {
+    //     type: {
+    //         type: String,
+    //         default: null
+    //     }
+    // },
+
+    computed : {
+        ...mapGetters('overlay',[
+            'type',
+            'stack',
+            'anotherStack'
+        ])
     },
 
     data() {
         return {
-            stack : {
-                visible : false,
-                src : ''
-            },
-            anotherStack : {
-                visible : false,
-                src : ''
-            },
-            stackIndex : 0,
-            video : [],
-            image : [],
+            // stack : {
+            //     visible : false,
+            //     src : ''
+            // },
+            // anotherStack : {
+            //     visible : false,
+            //     src : ''
+            // },
+            // stackIndex : 0,
+            // video : [],
+            // image : [],
             videos : [
                 //clouds
                 {link : 'https://player.vimeo.com/external/368748183.hd.mp4?s=a08e0776d3956fe948838e92b880e587dbb1020d&profile_id=172&oauth2_token_id=57447761',},
@@ -96,7 +105,7 @@ export default {
     },
 
     mounted() {
-        this.getStack();
+        this.$store.dispatch('overlay/boot');
     },
 
     methods: {
@@ -135,16 +144,18 @@ export default {
 
             that.request({
                 service : that.api[overlayApi][that.type]({
-                    params : {
-                        query : 'concert',
-                        page : 2,
-                        per_page : 20
-                    }
+                    params : that.api[overlayApi].meta({search : that.app.overlay.meta})
                 }),
                 animateProcess : false,
                 successCallback : (response) => {
                     that[that.type] = response.data[typeResponseKey].reduce(function(result, item){
-                        result.push(that.api[overlayApi].responses[that.type].source(item));
+
+                        let stack = that.api[overlayApi].responses[that.type].transformer(item, that.app.overlay.stack.quality);
+
+                        if (stack) {
+                            result.push(stack);
+                        }
+
                         return result;
                     }, []);
 
@@ -163,7 +174,7 @@ export default {
 
                 that.stack.visible = true;
 
-                setInterval(()=>{
+                setInterval(() => {
 
                     that.stack.visible = !that.stack.visible;
                     that.anotherStack.visible = !that.anotherStack.visible;

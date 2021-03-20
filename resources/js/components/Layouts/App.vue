@@ -1,7 +1,7 @@
 <template>
     <div class="overflow-hidden bg-black">
         <warping-cube :processing="app.status.processing"/>
-        <media-overlay :type="app.overlay.type"/>
+        <media-overlay/>
 
         <div class="absolute z-40 w-full h-full">
             <slot></slot>

@@ -54,21 +54,33 @@ export default {
         responses : {
             image : {
                 key : 'photos',
-                source : function(item) {
+                transformer : function(item, quality) {
                     return item.src.large2x;
                 }
             },
             video : {
                 key : 'videos',
-                source : function(item) {
-                    let src = item.video_files.filter(video => video.quality == 'hd');
+                transformer : function(item, quality) {
 
-                    if (src.length) {
-                        return src[0].link;
+                    if (item.duration < 6) { return null; }
+
+                    let high = item.video_files.filter(video => video.quality == OVERLAY_QUALITY.HIGH);
+                    let low = item.video_files.filter(video => video.quality == OVERLAY_QUALITY.LOW);
+
+                    //console.log({duration : item.duration, high : high.length, low : low.length});
+
+                    let source = null
+
+                    switch (quality){
+                        case OVERLAY_QUALITY.HIGH:
+                            source = high.length ? high[0].link : low[0].link;
+                            break;
+                        case OVERLAY_QUALITY.LOW:
+                            source = low[0].link;
+                            break;
                     }
 
-                    src = item.video_files.filter(video => video.quality == 'sd');
-                    return src[0].link;
+                    return source;
                 }
             }
         }

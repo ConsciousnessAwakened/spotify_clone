@@ -1,15 +1,19 @@
 require('../bootstrap');
 
 import Vuex from 'vuex';
-import actions from "./actions";
 import { mutations } from "./mutations";
+import actions from "./actions";
 import services from "./services";
 import api from "../api";
 import Client from "../Classes/Concrete/Client";
+import overlay from "../modules/overlay";
 
 window.Vue.use(Vuex);
 
 export default new Vuex.Store({
+    modules : {
+        overlay
+    },
     state : {
         api : api,
         app : {
@@ -26,7 +30,16 @@ export default new Vuex.Store({
             },
             overlay : {
                 api : 'pexels',
-                type : OVERLAY_TYPES.VIDEO
+                stack : {
+                    curated : false,
+                    quality : OVERLAY_QUALITY.HIGH,
+                    type : OVERLAY_TYPE.VIDEO
+                },
+                meta : {
+                    search : 'abstract',
+                    page : 1,
+                    per_page : 20
+                },
             }
         },
         notification : new Statement({types : ['info', 'warning']})
