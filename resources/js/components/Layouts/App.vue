@@ -1,6 +1,6 @@
 <template>
     <div class="overflow-hidden bg-black">
-        <warping-cube :processing="app.status.processing"/>
+        <warping-cube/>
         <media-overlay/>
 
         <div class="absolute z-40 w-full h-full">
@@ -23,6 +23,7 @@ export default {
 
     data() {
         return {
+
         }
     },
 
