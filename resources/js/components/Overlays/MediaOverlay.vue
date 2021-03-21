@@ -35,12 +35,12 @@ export default {
         Fade
     },
 
-    // props: {
-    //     type: {
-    //         type: String,
-    //         default: null
-    //     }
-    // },
+    props: {
+        overlayType: {
+            type: String,
+            default: null
+        }
+    },
 
     computed : {
         ...mapGetters('overlay',[
@@ -52,17 +52,19 @@ export default {
 
     data() {
         return {
-            // stack : {
-            //     visible : false,
-            //     src : ''
-            // },
-            // anotherStack : {
-            //     visible : false,
-            //     src : ''
-            // },
-            // stackIndex : 0,
-            // video : [],
-            // image : [],
+            oldData : {
+                stack : {
+                    visible : false,
+                    src : ''
+                },
+                anotherStack : {
+                    visible : false,
+                    src : ''
+                },
+                stackIndex : 0,
+                video : [],
+                image : [],
+            },
             videos : [
                 //clouds
                 {link : 'https://player.vimeo.com/external/368748183.hd.mp4?s=a08e0776d3956fe948838e92b880e587dbb1020d&profile_id=172&oauth2_token_id=57447761',},
@@ -105,7 +107,7 @@ export default {
     },
 
     mounted() {
-        this.$store.dispatch('overlay/boot');
+        this.startOverlay();
     },
 
     methods: {

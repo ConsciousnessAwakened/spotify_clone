@@ -2,6 +2,7 @@ require('../bootstrap');
 
 import Vuex from 'vuex';
 import { mutations } from "./mutations";
+import getters from "./getters";
 import actions from "./actions";
 import services from "./services";
 import api from "../api";
@@ -33,7 +34,7 @@ export default new Vuex.Store({
                 stack : {
                     curated : false,
                     quality : OVERLAY_QUALITY.HIGH,
-                    type : OVERLAY_TYPE.VIDEO
+                    type : OVERLAY_TYPE.IMAGE
                 },
                 meta : {
                     search : 'abstract',
@@ -44,6 +45,7 @@ export default new Vuex.Store({
         },
         notification : new Statement({types : ['info', 'warning']})
     },
+    getters,
     mutations,
     actions,
     devtools : process.env.MIX_APP_DEBUG

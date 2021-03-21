@@ -6,7 +6,7 @@
         leave-active-class="ease-in duration-300"
         leave-class="opacity-100"
         leave-to-class="opacity-0">
-        <div v-if="processing" class="cubeContainer absolute z-50 h-full w-full flex items-center justify-center">
+        <div v-if="requestProcessing" class="cubeContainer absolute z-50 h-full w-full flex items-center justify-center">
             <div class="cube">
                 <div class="sides">
                     <div class="top bg-gradient-to-r from-codeBlue-primaryTrans"></div>
@@ -26,10 +26,7 @@ export default {
     name: "Cube",
 
     props : {
-        processing : {
-            type : Boolean,
-            default : false
-        }
+
     }
 }
 </script>

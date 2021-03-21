@@ -3,6 +3,9 @@ import {mapState, mapGetters, mapMutations, mapActions} from "vuex";
 
 export default {
     computed: {
+        ...mapGetters({
+            requestProcessing : 'processing'
+        }),
         ...mapState({
             api : state => state.api,
             app : state => state.app,
@@ -19,6 +22,9 @@ export default {
             'stateAppAuthorization',
             'askAuthorization',
             'authorized'
-        ])
+        ]),
+        ...mapActions('overlay',{
+            startOverlay : 'boot'
+        })
     }
 }

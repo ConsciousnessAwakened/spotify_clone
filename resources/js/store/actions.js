@@ -46,7 +46,7 @@ export let generic = {
 
                 let errorMessage = _.get(error.response.data, 'errors')
                     || _.get(error.response.data, 'error') //Spotify Error Message
-                    || _.get(error.response.data, 'code'); //Pexel Error Message
+                    || _.get(error.response.data, 'code'); //Pexels Error Message
 
                 switch (typeof errorMessage) {
                     case 'object': errorMessage = _.isArray(errorMessage)

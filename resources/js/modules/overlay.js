@@ -143,7 +143,6 @@ export default {
                             commit('iterateInterval', {
                                 callback : () => {
                                     commit('toggleBoth');
-
                                     dispatch('updateFadedStack');
                                 }
                             });
