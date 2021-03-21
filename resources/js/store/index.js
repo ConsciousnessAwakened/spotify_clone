@@ -34,12 +34,12 @@ export default new Vuex.Store({
                 stack : {
                     curated : false,
                     quality : OVERLAY_QUALITY.HIGH,
-                    type : OVERLAY_TYPE.IMAGE
+                    type : OVERLAY_TYPE.VIDEO
                 },
                 meta : {
-                    search : 'abstract',
-                    page : 1,
-                    per_page : 20
+                    search : 'slow motion',
+                    page : 7,
+                    per_page : 30
                 },
             }
         },

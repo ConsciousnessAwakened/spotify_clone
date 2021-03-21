@@ -24,7 +24,7 @@ export default {
             'authorized'
         ]),
         ...mapActions('overlay',{
-            startOverlay : 'boot'
+            bootOverlay : 'boot',
         })
     }
 }

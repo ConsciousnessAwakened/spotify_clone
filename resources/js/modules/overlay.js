@@ -23,6 +23,13 @@ export default {
             state[payload.type] = payload.value;
         },
 
+        clearStack(state) {
+            state.image = [];
+            state.video = [];
+            state.stack.src = '';
+            state.anotherStack.src = '';
+        },
+
         toggleStack(state, payload) {
             state[payload.stack].visible = !state[payload.stack].visible;
         },
@@ -30,6 +37,11 @@ export default {
         toggleBoth(state) {
             state.stack.visible = !state.stack.visible;
             state.anotherStack.visible = !state.anotherStack.visible;
+        },
+
+        hideBoth(state) {
+            state.stack.visible = false;
+            state.anotherStack.visible = false;
         },
 
         stackSource(state, payload) {
@@ -121,6 +133,9 @@ export default {
         },
 
         boot({commit, getters, dispatch, rootState}) {
+            commit('clearIteration');
+            commit('hideBoth');
+            commit('clearStack');
 
             dispatch('request', {
                 service : rootState.api[getters.api][getters.type]({
