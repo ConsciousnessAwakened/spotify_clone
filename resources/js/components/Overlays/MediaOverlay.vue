@@ -107,7 +107,7 @@ export default {
     },
 
     mounted() {
-        this.startOverlay();
+        this.bootOverlay();
     },
 
     methods: {
