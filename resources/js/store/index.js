@@ -33,12 +33,12 @@ export default new Vuex.Store({
                 api : 'pexels',
                 stack : {
                     curated : false,
-                    quality : OVERLAY_QUALITY.HIGH,
+                    quality : OVERLAY_QUALITY.LOW,
                     type : OVERLAY_TYPE.VIDEO
                 },
                 meta : {
-                    search : 'slow motion',
-                    page : 7,
+                    search : 'clouds',
+                    page : 1,
                     per_page : 30
                 },
             }
