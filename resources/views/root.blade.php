@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" href="{{ asset('images/spotify/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_White.png') }}">
+        <link rel="icon" href="{{ asset('images/bilberry/icons/bilberry_icon.png') }}">
         <title>{{ env('APP_NAME') }}</title>
 
         <!-- Fonts -->

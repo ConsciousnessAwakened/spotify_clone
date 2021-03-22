@@ -3,7 +3,7 @@
         <div class="max-w-md w-full space-y-2">
             <div class="flex justify-center">
 
-                <img class="w-2/4" :src="'images/logos/definitely_not.png'" />
+                <img class="w-full" :src="'images/bilberry/logos/bilberry_logo.png'" />
 
                 <!--<p class="mt-2 text-center text-sm text-gray-600">
                     become a patron
