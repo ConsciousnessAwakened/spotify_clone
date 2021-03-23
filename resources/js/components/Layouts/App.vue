@@ -1,7 +1,7 @@
 <template>
     <div class="overflow-hidden bg-black">
         <warping-cube/>
-        <media-overlay/>
+        <mood-caster/>
 
         <div class="absolute z-40 w-full h-full">
             <slot></slot>
@@ -11,13 +11,13 @@
 
 <script>
 import WarpingCube from "../Loaders/WarpingCube";
-import MediaOverlay from "../Overlays/MediaOverlay";
+import MoodCaster from "../Common/MoodCaster";
 
 export default {
     name: "App",
 
     components: {
-        MediaOverlay,
+        MoodCaster,
         WarpingCube
     },
 

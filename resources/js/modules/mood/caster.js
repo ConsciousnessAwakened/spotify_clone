@@ -64,24 +64,27 @@ export default {
 
         clearIteration(state) {
             clearInterval(state.iterate);
+
+            state.iterate = null;
         }
     },
 
     getters : {
         stack : (state) => state.stack,
         anotherStack : (state) => state.anotherStack,
-        api : (state, getters, rootState) => rootState.app.overlay.api,
-        type : (state, getters, rootState) => rootState.app.overlay.stack.type,
+        iteration : (state) => state.iterate,
+        api : (state, getters, rootState) => rootState.app.mood.api,
+        type : (state, getters, rootState) => rootState.app.mood.stack.type,
         key : (state, getters, rootState) => rootState.api[getters.api].responses[getters.type].key
     },
 
     actions : {
 
         updateFadedStack({state, commit, getters, dispatch}) {
-            console.log('Hidden Stack Must Update With New Source');
 
             setTimeout(() => {
                 if (state.stack.visible) {
+                    console.log('anotherStack Must Update With New Source');
                     dispatch('getIndex').then((index)=>{
                         commit('stackSource', {
                             stack : 'anotherStack',
@@ -89,6 +92,7 @@ export default {
                         });
                     });
                 } else {
+                    console.log('stack Must Update With New Source');
                     dispatch('getIndex').then((index)=>{
                         commit('stackSource', {
                             stack : 'stack',
@@ -133,18 +137,21 @@ export default {
         },
 
         boot({commit, getters, dispatch, rootState}) {
+            console.log('Boot Mood Caster');
             commit('clearIteration');
             commit('hideBoth');
             commit('clearStack');
+            commit('resetIndex');
 
             dispatch('request', {
                 service : rootState.api[getters.api][getters.type]({
-                    params : rootState.api[getters.api].meta({search : rootState.app.overlay.meta})
+                    params : rootState.api[getters.api].meta({search : rootState.app.mood.meta})
                 }),
                 animateProcess : false,
                 successCallback : (response) => {
+                    console.log(response);
                     let stack = response.data[getters.key].reduce(function(result, item){
-                        let stack = rootState.api[getters.api].responses[getters.type].transformer(item, rootState.app.overlay.stack.quality);
+                        let stack = rootState.api[getters.api].responses[getters.type].transformer(item, rootState.app.mood.stack.quality);
                         if (stack) {result.push(stack);}
                         return result;
                     }, []);

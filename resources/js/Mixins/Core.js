@@ -23,8 +23,8 @@ export default {
             'askAuthorization',
             'authorized'
         ]),
-        ...mapActions('overlay',{
-            bootOverlay : 'boot',
+        ...mapActions('moodCaster',{
+            bootMoodCaster : 'boot',
         })
     }
 }

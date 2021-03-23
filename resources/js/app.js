@@ -34,6 +34,8 @@ new window.Vue({
             }
         });
 
+        that.$store.dispatch('moodCaster/boot');
+
         that.finishProcessing();
     },
     render: h => h(InertiaApp, {
