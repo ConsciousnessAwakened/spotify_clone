@@ -7,13 +7,13 @@ import actions from "./actions";
 import services from "./services";
 import api from "../api";
 import Client from "../Classes/Concrete/Client";
-import overlay from "../modules/overlay";
+import moodCaster from "../modules/mood/caster";
 
 window.Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules : {
-        overlay
+        moodCaster
     },
     state : {
         api : api,
@@ -29,15 +29,15 @@ export default new Vuex.Store({
             status : {
                 processing : true
             },
-            overlay : {
+            mood : {
                 api : 'pexels',
                 stack : {
                     curated : false,
-                    quality : OVERLAY_QUALITY.LOW,
+                    quality : OVERLAY_QUALITY.HIGH,
                     type : OVERLAY_TYPE.VIDEO
                 },
                 meta : {
-                    search : 'clouds',
+                    search : 'autumn',
                     page : 1,
                     per_page : 30
                 },

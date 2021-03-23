@@ -29,7 +29,7 @@ export let generic = {
         service.then(function (response) {
 
             if (process.env.MIX_APP_DEBUG) {
-                console.log(response);
+                //console.log(response);
             }
 
             setTimeout(() => {
