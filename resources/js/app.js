@@ -34,7 +34,7 @@ new window.Vue({
             }
         });
 
-        that.$store.dispatch('moodCaster/boot');
+        //that.$store.dispatch('moodCaster/boot');
 
         that.finishProcessing();
     },

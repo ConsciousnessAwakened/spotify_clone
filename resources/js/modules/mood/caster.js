@@ -84,7 +84,7 @@ export default {
 
             setTimeout(() => {
                 if (state.stack.visible) {
-                    console.log('anotherStack Must Update With New Source');
+                    //console.log('anotherStack Must Update With New Source');
                     dispatch('getIndex').then((index)=>{
                         commit('stackSource', {
                             stack : 'anotherStack',
@@ -92,7 +92,7 @@ export default {
                         });
                     });
                 } else {
-                    console.log('stack Must Update With New Source');
+                    //console.log('stack Must Update With New Source');
                     dispatch('getIndex').then((index)=>{
                         commit('stackSource', {
                             stack : 'stack',
