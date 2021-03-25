@@ -20,5 +20,5 @@ Route::post('/authorization/ask', [\App\Http\Controllers\AuthorizationController
 
 Route::middleware(['authorized'])->group(function () {
 
-    Route::get('/welcome', function(){return inertia('Pages/Main/Welcome');});
+    Route::get('/play', function(){return inertia('Pages/Main/Index');});
 });

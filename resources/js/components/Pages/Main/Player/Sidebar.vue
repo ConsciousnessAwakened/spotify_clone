@@ -2,8 +2,7 @@
     <div class="bg-black h-screen w-sidebar flex-none hidden sm:hidden md:inline-block">
         <div class="relative">
             <div class="p-6 flex justify-center">
-                <!--<img alt="logo" class="h-10" :src="logo">-->
-                <h1 class="font-semibold text-3xl h-10 text-white">Definitely not</h1>
+                <img class="h-10" :src="'images/bilberry/icons/bilberry_icon.png'" />
             </div>
 
             <div class="px-2 text-gray-400">

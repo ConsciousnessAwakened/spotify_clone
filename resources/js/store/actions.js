@@ -142,7 +142,7 @@ export default {
             animateProcess : false,
             successCallback : (response) => {
                 if (response.data['isSuccessful']){
-                    state.inertia.get('/welcome');
+                    state.inertia.get('/play');
                 }
             }
         });
