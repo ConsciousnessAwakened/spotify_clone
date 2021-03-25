@@ -9,41 +9,41 @@
         <div v-if="requestProcessing" class="cubeContainer absolute z-50 h-full w-full flex items-center justify-center">
             <div class="cube">
                 <div class="sides">
-                    <div class="top bg-gradient-to-r from-codeBlue-primary"></div>
-                    <div class="anotherTop bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="topMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="topMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="topMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="top bg-gradient-to-r from-bilberry-primary via-transparent to-bilberry-primary"></div>
+                    <div class="anotherTop bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="topMirror1 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="topMirror2 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="topMirror3 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
 
-                    <div class="right bg-gradient-to-r from-codeBlue-primary"></div>
-                    <div class="anotherRight bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="rightMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="rightMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="rightMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="right bg-gradient-to-r from-bilberry-primary via-transparent to-bilberry-primary"></div>
+                    <div class="anotherRight bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="rightMirror1 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="rightMirror2 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="rightMirror3 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
 
-                    <div class="left bg-gradient-to-r from-codeBlue-primary"></div>
-                    <div class="anotherLeft bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="leftMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="leftMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="leftMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="left bg-gradient-to-r from-bilberry-primary via-transparent to-bilberry-primary"></div>
+                    <div class="anotherLeft bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="leftMirror1 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="leftMirror2 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="leftMirror3 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
 
-                    <div class="front bg-gradient-to-r from-codeBlue-primary"></div>
-                    <div class="anotherFront bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="frontMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="frontMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="frontMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="front bg-gradient-to-r from-bilberry-primary via-transparent to-bilberry-primary"></div>
+                    <div class="anotherFront bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="frontMirror1 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="frontMirror2 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="frontMirror3 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
 
-                    <div class="back bg-gradient-to-r from-codeBlue-primary"></div>
-                    <div class="anotherBack bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="backMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="backMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="backMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="back bg-gradient-to-r from-bilberry-primary via-transparent to-bilberry-primary"></div>
+                    <div class="anotherBack bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="backMirror1 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="backMirror2 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="backMirror3 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
 
-                    <div class="bottom bg-codeBlue-primaryTrans"></div>
-                    <div class="anotherBottom bg-codeBlue-primaryTrans"></div>
-                    <div class="bottomMirror1 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="bottomMirror2 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
-                    <div class="bottomMirror3 bg-gradient-to-r from-codeBlue-primaryTrans"></div>
+                    <div class="bottom bg-bilberry-primaryTrans"></div>
+                    <div class="anotherBottom bg-bilberry-primaryTrans"></div>
+                    <div class="bottomMirror1 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="bottomMirror2 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
+                    <div class="bottomMirror3 bg-gradient-to-r from-bilberry-primaryTrans via-transparent to-bilberry-primaryTrans"></div>
                 </div>
             </div>
         </div>

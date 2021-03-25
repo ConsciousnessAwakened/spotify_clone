@@ -20,6 +20,13 @@ module.exports = {
                     lightTrans : 'rgba(181,197,221,0.5)',
                     secondary : '#f2f2f2'
                 },
+                bilberry : {
+                    dark : '#0064B2',
+                    primary : '#2B7EBF',
+                    primaryTrans : 'rgba(43, 126, 191, 0.5)',
+                    secondary : '#f2f2f2',
+                    light : '#ACCCE6'
+                },
                 spotify : {
                     green : 'rgb(30, 215, 96)',
                     darkGreen : '#1DB954',
@@ -97,21 +104,21 @@ module.exports = {
                 '1500': '1500ms',
                 '2500': '2500ms',
             },
-            // width : {
-            //     'sidebar' : '230px'
-            // },
-            // spacing : {
-            //     'sidebar' : '230px',
-            //     'installApp' : '38px',
-            //     'cover' : '230px',
-            //     'playbar' : '90px',
-            //
-            //     'InstallApp-cover' : '268px',
-            //     'cover-playbar': '320px',
-            //     'InstallApp-cover-playbar' : '358px',
-            //
-            //     'InstallApp-playbar' : '128px'
-            // }
+            width : {
+                'sidebar' : '230px'
+            },
+            spacing : {
+                'sidebar' : '230px',
+                'installApp' : '38px',
+                'cover' : '230px',
+                'playbar' : '90px',
+
+                'InstallApp-cover' : '268px',
+                'cover-playbar': '320px',
+                'InstallApp-cover-playbar' : '358px',
+
+                'InstallApp-playbar' : '128px'
+            }
         }
     },
 
