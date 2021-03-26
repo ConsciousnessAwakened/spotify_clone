@@ -7,7 +7,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class HasValidAccessToken
+class HasAccessToken
 {
     use SessionHandler;
 

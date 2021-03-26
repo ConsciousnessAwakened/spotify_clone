@@ -19,6 +19,6 @@ Route::post('/callback', [\App\Http\Controllers\AuthorizationController::class, 
 Route::post('/authorization/ask', [\App\Http\Controllers\AuthorizationController::class, 'askAuthorization']);
 
 Route::middleware(['authorized'])->group(function () {
-
+    Route::get('/logout', [\App\Http\Controllers\AuthorizationController::class, 'logout']);
     Route::get('/play', function(){return inertia('Pages/Main/Index');});
 });
