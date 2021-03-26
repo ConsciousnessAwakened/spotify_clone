@@ -23,7 +23,7 @@ new window.Vue({
 
         that.$store.state.inertia = that.$inertia;
 
-        Object.keys(that.$store.state.api).forEach((api)=>{
+        Object.keys(that.$store.state.api).forEach((api) => {
 
             window[api] = axios.create();
             window[api].defaults.headers.common['Content-Type'] = 'application/json';

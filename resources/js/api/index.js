@@ -42,6 +42,16 @@ export default {
                         message : 'Invalid access token'
                     }
                 }
+            },
+            account : {
+                transformer : (data) => {
+                    return {
+                        name : data.display_name,
+                        images : data.images,
+                        followers : data.followers,
+                        externalUrls : data.external_urls
+                    };
+                }
             }
         }
     }),
