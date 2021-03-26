@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Session;
 
 trait SessionHandler
 {
-    public function stateValid($state): bool
+    public function isSessioned($key, $value): bool
     {
-        return Session::get('state') == $state;
+        return Session::get($key) == $value;
     }
 
     public function has($key): bool

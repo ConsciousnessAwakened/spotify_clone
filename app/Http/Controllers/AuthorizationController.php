@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\Blueprint\ExpiredTokenInterface;
 use App\Traits\SessionHandler;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Session;
 
 class AuthorizationController extends Controller
@@ -25,7 +26,7 @@ class AuthorizationController extends Controller
 
         if (request()->wantsJson()) {
 
-            if($this->stateValid(request()->input('state'))){
+            if($this->isSessioned('state', request()->input('state'))){
 
                 $this->forgetAndPut('access_token', request()->input('access_token'));
 
@@ -34,7 +35,7 @@ class AuthorizationController extends Controller
                 return $this->successfulResponse([], '');
             } else {
 
-                return $this->errorResponse(['Invalid State'], '');
+                return $this->errorResponse([__('auth.failed')], '');
             }
         }
 
