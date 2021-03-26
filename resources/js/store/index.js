@@ -5,14 +5,18 @@ import { mutations } from "./mutations";
 import getters from "./getters";
 import actions from "./actions";
 import services from "./services";
+
 import api from "../api";
 import Client from "../Classes/Concrete/Client";
+
 import moodCaster from "../modules/mood/caster";
+import account from "../modules/account";
 
 window.Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules : {
+        account,
         moodCaster
     },
     state : {
@@ -34,10 +38,10 @@ export default new Vuex.Store({
                 stack : {
                     curated : false,
                     quality : OVERLAY_QUALITY.HIGH,
-                    type : OVERLAY_TYPE.IMAGE
+                    type : OVERLAY_TYPE.VIDEO
                 },
                 meta : {
-                    search : 'snow',
+                    search : 'lovers',
                     page : 1,
                     per_page : 15
                 },
