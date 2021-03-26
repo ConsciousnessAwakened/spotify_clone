@@ -40,8 +40,6 @@ export default {
     beforeCreate() {
         let that = this;
 
-        console.log("App Before Create");
-
         if (!_.isEmpty(that.$page.props.access_token)) {
             window[_.get(that.$page.props, 'api', 'axios')].defaults.headers.common['Authorization'] = `Bearer ${that.$page.props.access_token}`;
         }
@@ -50,8 +48,6 @@ export default {
     created() {
         let that = this;
 
-        console.log("App Created");
-
         that.stateAppAuthorization({
             api : _.get(that.$page.props, 'api', null),
             state : _.get(that.$page.props, 'state', null)
@@ -59,7 +55,7 @@ export default {
     },
 
     mounted() {
-        console.log("App Mounted");
+
     },
 
     methods: {

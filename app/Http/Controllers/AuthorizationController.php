@@ -59,4 +59,15 @@ class AuthorizationController extends Controller
             }
         }
     }
+
+    public function logout()
+    {
+        Session::forget('api');
+        Session::forget('state');
+        Session::forget('access_token');
+
+        \Log::debug(["Logout" => Session::all()]);
+
+        return redirect('/play');
+    }
 }

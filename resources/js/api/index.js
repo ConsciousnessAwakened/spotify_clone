@@ -46,10 +46,10 @@ export default {
             account : {
                 transformer : (data) => {
                     return {
-                        name : data.display_name,
-                        images : data.images,
-                        followers : data.followers,
-                        externalUrls : data.external_urls
+                        name : data.display_name || '',
+                        images : data.images || [],
+                        followers : data.followers || {total : 0},
+                        externalUrls : data.external_urls || {}
                     };
                 }
             }

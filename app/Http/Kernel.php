@@ -3,7 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\HandleInertiaRequests;
-use App\Http\Middleware\HasValidAccessToken;
+use App\Http\Middleware\HasAccessToken;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -66,6 +66,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
-        'authorized' => HasValidAccessToken::class
+        'authorized' => HasAccessToken::class
     ];
 }
