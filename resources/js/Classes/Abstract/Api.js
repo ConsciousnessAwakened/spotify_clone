@@ -10,6 +10,7 @@ export default class Api {
 
         this.scopes = attributes.scopes;
         this.responses = attributes.responses;
+        this.transformers = attributes.transformers;
         this.key = attributes.key;
     }
 

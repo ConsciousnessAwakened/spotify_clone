@@ -150,11 +150,11 @@ export default {
                 animateProcess : false,
                 successCallback : (response) => {
                     console.log({moodCasterBoot : response});
-                    let stack = response.data[getters.key].reduce(function(result, item){
-                        let stack = rootState.api[getters.api].responses[getters.type].transformer(item, rootState.app.mood.stack.quality);
-                        if (stack) {result.push(stack);}
-                        return result;
-                    }, []);
+
+                    let stack = rootState.api[getters.api].transformers[getters.type]({
+                        data : response.data[getters.key],
+                        quality : rootState.app.mood.stack.quality
+                    });
 
                     if (stack.length) {
                         commit('putStack', {type : getters.type, value : stack});
