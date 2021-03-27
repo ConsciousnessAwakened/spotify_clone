@@ -42,16 +42,14 @@ export default {
                         message : 'Invalid access token'
                     }
                 }
-            },
+            }
+        },
+        transformers : {
             account : {
-                transformer : (data) => {
-                    return {
-                        name : data.display_name || '',
-                        images : data.images || [],
-                        followers : data.followers || {total : 0},
-                        externalUrls : data.external_urls || {}
-                    };
-                }
+                name : {path : 'display_name', default: 'Display Name'},
+                image : {path : 'images', default: '', transform: (images) => images.length ? images[0].url : ""},
+                'followers.total' : {path : ['followers.total'], default: 0},
+                'externalUrls.account' : {path : 'external_urls.spotify', default: {}}
             }
         }
     }),
@@ -63,35 +61,35 @@ export default {
         key : process.env.MIX_PEXEL_TOKEN,
         responses : {
             image : {
-                key : 'photos',
-                transformer : function(item, quality) {
-                    return item.src.large2x;
-                }
+                key : 'photos'
             },
             video : {
-                key : 'videos',
-                transformer : function(item, quality) {
+                key : 'videos'
+            }
+        },
+        transformers : {
+            image : (args) => {
+                return args.data.reduce(function(result, item){
 
-                    if (item.duration < 6) { return null; }
-
-                    let high = item.video_files.filter(video => video.quality == OVERLAY_QUALITY.HIGH);
-                    let low = item.video_files.filter(video => video.quality == OVERLAY_QUALITY.LOW);
-
-                    //console.log({duration : item.duration, high : high.length, low : low.length});
-
-                    let source = null
-
-                    switch (quality){
-                        case OVERLAY_QUALITY.HIGH:
-                            source = high.length ? high[0].link : low[0].link;
-                            break;
-                        case OVERLAY_QUALITY.LOW:
-                            source = low[0].link;
-                            break;
+                    if (item.src.large2x) {
+                        result.push(item.src.large2x);
                     }
 
-                    return source;
-                }
+                    return result;
+                }, []);
+            },
+            video : (args) => {
+                return args.data.reduce(function(result, item){
+
+                    let stack = {
+                        duration : item.duration,
+                        files : item['video_files'].filter((file) => args.quality === file.quality)
+                    };
+
+                    if(stack.duration > 5 && stack.files.length) result.push(stack.files[0].link);
+
+                    return result;
+                }, []);
             }
         }
     })

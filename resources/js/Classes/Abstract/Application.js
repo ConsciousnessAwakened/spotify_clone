@@ -8,6 +8,7 @@ export default class Application extends Api{
             address : attributes.address || {},
             scopes : attributes.scopes || [],
             responses : attributes.responses || {},
+            transformers : attributes.transformers || {},
             key : attributes.key || null,
         });
 

@@ -49,4 +49,6 @@ window.Uri = Uri;
 window.Statement = Statement;
 window.Obj = Obj;
 
+window.transform = require('json-map-transform');
+
 Moment.defaultFormat = 'YYYY-MM-DD HH:mm:ss';
