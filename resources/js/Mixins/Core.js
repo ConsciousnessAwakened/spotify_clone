@@ -3,14 +3,20 @@ import {mapState, mapGetters, mapMutations, mapActions} from "vuex";
 
 export default {
     computed: {
-        ...mapGetters({
-            requestProcessing : 'processing'
-        }),
         ...mapState({
             api : state => state.api,
             app : state => state.app,
             service : state => state.app.service,
             notification : state => state.notification
+        }),
+        ...mapGetters({
+            requestProcessing : 'processing'
+        }),
+        ...mapGetters('account',{
+            displayName : 'name',
+            followers : 'followers',
+            accountUrl : 'accountUrl',
+            profileImage : 'image'
         })
     },
 
@@ -25,6 +31,9 @@ export default {
         ]),
         ...mapActions('moodCaster',{
             bootMoodCaster : 'boot',
+        }),
+        ...mapActions('account',{
+            getAccount : 'getData'
         })
     }
 }

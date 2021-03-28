@@ -42,8 +42,8 @@ export default new Vuex.Store({
                 },
                 meta : {
                     search : 'abstract',
-                    page : 1,
-                    per_page : 80
+                    page : 3,
+                    per_page : 40
                 },
             }
         },
