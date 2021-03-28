@@ -71,8 +71,8 @@ export default {
             image : (args) => {
                 return args.data.reduce(function(result, item){
 
-                    if (item.src.large2x) {
-                        result.push(item.src.large2x);
+                    if (item.src.landscape) {
+                        result.push(item.src.landscape);
                     }
 
                     return result;
