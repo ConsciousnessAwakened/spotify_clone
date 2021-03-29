@@ -1,6 +1,6 @@
 <template>
-    <section class="scaffoldDark">
-        <div class="container px-4 mx-auto">
+    <section class="relative">
+        <div class="mx-auto px-4">
             <nav class="flex items-center">
 
                 <div class="relative py-2 ml-auto flex items-center space-x-3">
@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="h-12 bg-gradient-to-t from-transparent via-gray-500 from-transparent" style="width: 2px;">&nbsp;</div>
-                    <div class="bg-cover w-12 h-12 rounded-full cursor-pointer" :style="{'background-image': 'url(' + profileImage + ')'}" @click="profileDropDown = !profileDropDown">&nbsp;</div>
+                    <div class="bg-cover rounded-md w-12 h-12 cursor-pointer" :style="{'background-image': 'url(' + profileImage + ')'}" @click="profileDropDown = !profileDropDown">&nbsp;</div>
                     <div class="relative">
                         <div class="flex pr-2 items-center rounded cursor-pointer text-gray-700 hover:text-bilberry-primary" @click="profileDropDown = !profileDropDown">
                             <a class="text-base font-semibold">{{ displayName }}</a>

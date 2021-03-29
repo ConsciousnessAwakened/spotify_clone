@@ -3,7 +3,7 @@
         <warping-cube/>
         <mood-caster/>
 
-        <div class="absolute z-40 w-full h-full">
+        <div class="absolute px-2 w-full z-40">
             <slot></slot>
         </div>
     </div>
