@@ -21,3 +21,11 @@ window.OVERLAY_QUALITY = {
     HIGH : 'hd',
     LOW : 'sd'
 }
+
+window.SCREEN_WIDTH = {
+    SM : 649,
+    MD : 768,
+    LG : 1024,
+    XL : 1280,
+    XXL : 1536
+}

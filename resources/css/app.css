@@ -21,12 +21,12 @@ body {
 
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgb(118, 121, 118);
-    border-radius: 8px;
+    /*border-radius: 8px;*/
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 8px;
-    -webkit-box-shadow: inset 0 0 6px rgb(191, 200, 193);
+    -webkit-box-shadow: inset 0 0 6px rgb(58, 61, 86);
 }
 ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(255,0,0,0.4);
