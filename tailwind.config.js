@@ -114,7 +114,7 @@ module.exports = {
                 'cover-large' : '300px',
                 'cover-medium' : '150px',
                 'cover-small' : '75px',
-            }
+            },
             // width : {
             //     'sidebar' : '230px'
             // },
