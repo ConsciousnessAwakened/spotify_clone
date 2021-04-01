@@ -11,13 +11,15 @@ import Client from "../Classes/Concrete/Client";
 
 import moodCaster from "../modules/mood/caster";
 import account from "../modules/account";
+import featured from "../modules/featured";
 
 window.Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules : {
         account,
-        moodCaster
+        moodCaster,
+        featured
     },
     state : {
         api : api,

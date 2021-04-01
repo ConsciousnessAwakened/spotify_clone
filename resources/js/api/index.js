@@ -1,5 +1,6 @@
 import Spotify from "../Classes/Concrete/Spotify";
 import Pexels from "../Classes/Concrete/Pexels";
+import Playlist from "../Classes/Concrete/Playlist";
 
 export default {
     spotify : new Spotify({
@@ -50,6 +51,24 @@ export default {
                 image : {path : 'images', default: '', transform: (images) => images.length ? images[0].url : ""},
                 'followers.total' : {path : ['followers.total'], default: 0},
                 'externalUrls.account' : {path : 'external_urls.spotify', default: {}}
+            },
+            featured : {
+                items : {
+                    path : 'playlists.items', transform:(items) => {
+
+                        return items.reduce((result, item) => {
+                            result.push(new Playlist({
+                                name : item.name,
+                                description : item.description,
+                                image : item.images[0].url,
+                                tracks : item.tracks,
+                                owner : item.owner
+                            }));
+
+                            return result;
+                        },[]);
+                    }
+                }
             }
         }
     }),

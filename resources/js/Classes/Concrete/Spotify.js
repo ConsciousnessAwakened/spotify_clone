@@ -21,4 +21,8 @@ export default class Spotify extends Application{
     account() {
         return window[this.appName].get(`${this.libraryAddress}/me`);
     }
+
+    featured() {
+        return window[this.appName].get(`${this.libraryAddress}/browse/featured-playlists`);
+    }
 }
