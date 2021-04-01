@@ -17,6 +17,9 @@ export default {
             followers : 'followers',
             accountUrl : 'accountUrl',
             profileImage : 'image'
+        }),
+        ...mapGetters('featured', {
+            featuredLists : 'featuredLists'
         })
     },
 
