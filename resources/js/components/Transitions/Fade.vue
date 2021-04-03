@@ -1,8 +1,8 @@
 <template>
     <transition
         :appear="initial"
-        enter-active-class="animate-fade-in"
-        leave-active-class="animate-fade-out">
+        :enter-active-class="enterClass"
+        :leave-active-class="leaveClass">
         <slot></slot>
     </transition>
 </template>
@@ -12,6 +12,14 @@ export default {
     name: "Fade",
 
     props: {
+        enterClass: {
+            type: String,
+            default: 'animate-fade-in'
+        },
+        leaveClass: {
+            type: String,
+            default: 'animate-fade-out'
+        },
         initial: {
             type: Boolean,
             default: false

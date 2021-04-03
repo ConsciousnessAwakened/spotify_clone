@@ -7,82 +7,48 @@
         Track name: 23 characters
         -->
 
-        <div class="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8">
-            <div v-for="(featuredList, key) in featuredLists" :class="{'hidden' : isHidden(key)}" class="">
-                <img class="w-full" loading="lazy" :src="featuredList.image"/>
-                <!--<div v-text="'Key : ' + key"></div>-->
-                <div class="truncate text-base font-semibold" v-html="featuredList.name"></div>
-                <div class="truncate text-sm" v-html="featuredList.description"></div>
+        <transition-group
+            enter-active-class="animate-fade-in"
+            leave-active-class="hidden"
+            tag="div"
+            class="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8">
+            <div v-for="(list, key) in lists" :key="list.id" v-if="!isHidden(key)" class="scaffoldGray">
+                <img class="w-full" loading="lazy" :src="list.image"/>
+                <div class="truncate text-base font-semibold" v-html="list.name"></div>
+                <div class="line-clamp-2 text-sm" v-html="list.description"></div>
             </div>
-        </div>
+        </transition-group>
+
+        <!--<div class="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8">
+            <div v-for="(list, key) in lists" :key="list.id" :class="{'hidden' : isHidden(key)}">
+                <img class="w-full" loading="lazy" :src="list.image"/>
+                <div class="truncate text-base font-semibold" v-html="list.name"></div>
+                <div class="truncate text-sm" v-html="list.description"></div>
+            </div>
+        </div>-->
     </section>
 </template>
 
 <script>
+import FeaturedMixin from "../../../Mixins/Featured/FeaturedMixin";
+
 export default {
     name: "Featured",
 
-    data() {
-        return {
-            playlists : [
-                {number:1},
-                {number:2},
-                {number:3},
-                {number:4},
-                {number:5},
-                {number:6},
-                {number:7},
-                {number:8},
-                {number:9},
-                {number:10},
-            ],
-            windowWidth : window.innerWidth
-        }
-    },
+    mixins : [
+        FeaturedMixin
+    ],
 
-    mounted() {
-        window.addEventListener('resize', this.handleWindowWidth);
-
-        this.$store.dispatch('featured/getFeatured');
-    },
-
-    destroyed() {
-        window.removeEventListener('resize', this.handleWindowWidth);
-    },
-
-    methods : {
-        handleWindowWidth() {
-            this.windowWidth = window.innerWidth;
+    props: {
+        lists: {
+            type: Array,
+            default: () => {return []}
         },
-        isHidden(key) {
-            let hidden = true;
-
-            if (this.windowWidth < SCREEN_WIDTH.SM) {
-                hidden = !(key <= 0);
-            } else if (this.windowWidth >= SCREEN_WIDTH.SM && this.windowWidth < SCREEN_WIDTH.MD) {
-                hidden = !(key <= 1);
-            } else if (this.windowWidth >= SCREEN_WIDTH.MD && this.windowWidth < SCREEN_WIDTH.LG) {
-                hidden = !(key <= 2);
-            } else if (this.windowWidth >= SCREEN_WIDTH.LG && this.windowWidth < SCREEN_WIDTH.XL) {
-                hidden = !(key <= 3);
-            } else if (this.windowWidth >= SCREEN_WIDTH.XL && this.windowWidth < SCREEN_WIDTH.XXL) {
-                hidden = !(key <= 5);
-            } else if (this.windowWidth >= SCREEN_WIDTH.XXL) {
-                hidden = !(key <= 7);
-            }
-
-            return hidden;
+        type: {
+            type: Number,
+            default: FEATURE_TYPE.PEEK
         }
     },
-
-    watch : {
-        windowWidth : {
-            immediate : true,
-            handler : (oldWidth, newWidth) => {
-                console.log({windowWidth : [oldWidth, newWidth]});
-            }
-        }
-    }
 }
 </script>
 

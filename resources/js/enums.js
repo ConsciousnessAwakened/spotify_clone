@@ -29,3 +29,13 @@ window.SCREEN_WIDTH = {
     XL : 1280,
     XXL : 1536
 }
+
+window.FEATURE_TYPE = {
+    PEEK : 0,
+    FULL : 1,
+}
+
+window.TRANSITION_GROUP = {
+    SINGLE : 'single',
+    LISTS : 'lists',
+}

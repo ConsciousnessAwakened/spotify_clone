@@ -52,12 +52,13 @@ export default {
                 'followers.total' : {path : ['followers.total'], default: 0},
                 'externalUrls.account' : {path : 'external_urls.spotify', default: {}}
             },
-            featured : {
+            playlist : {
                 items : {
                     path : 'playlists.items', transform:(items) => {
 
                         return items.reduce((result, item) => {
                             result.push(new Playlist({
+                                id : item.id,
                                 name : item.name,
                                 description : item.description,
                                 image : item.images[0].url,
@@ -69,6 +70,11 @@ export default {
                         },[]);
                     }
                 }
+            },
+            album : {},
+            track : {},
+            mix : {
+
             }
         }
     }),
