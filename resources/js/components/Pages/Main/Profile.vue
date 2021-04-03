@@ -39,10 +39,6 @@ export default {
         return {
             profileDropDown : false
         }
-    },
-
-    mounted() {
-        this.getAccount();
     }
 }
 </script>

@@ -6,6 +6,10 @@
     border: 1px solid black;
 }
 
+.scaffoldGray {
+    border: 1px solid gray;
+}
+
 .scaffoldLight {
     border: 1px solid yellow;
 }

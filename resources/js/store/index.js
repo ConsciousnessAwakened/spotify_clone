@@ -44,8 +44,8 @@ export default new Vuex.Store({
                 },
                 meta : {
                     search : 'summer',
-                    page : 1,
-                    per_page : 40
+                    page : 2,
+                    per_page : 80
                 },
             }
         },

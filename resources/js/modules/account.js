@@ -36,7 +36,7 @@ export default {
     actions : {
         getData({commit, dispatch, rootState, rootGetters}) {
 
-            dispatch('request', {
+            return dispatch('request', {
                 service : rootState.api[rootGetters.api].account(),
                 animateProcess : false,
                 successCallback : (response) => {

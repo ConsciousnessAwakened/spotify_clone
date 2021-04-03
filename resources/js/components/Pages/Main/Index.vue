@@ -1,7 +1,7 @@
 <template>
     <app>
-        <profile/>
-        <featured/>
+        <profile class="mb-5" />
+        <featured :lists="featuredLists" />
     </app>
 </template>
 
@@ -17,6 +17,12 @@ export default {
         Featured,
         Profile,
         App
+    },
+
+    async mounted() {
+        await this.getAccount();
+        await this.getFeatured();
+        //await this.getNewReleases();
     }
 }
 </script>

@@ -25,4 +25,8 @@ export default class Spotify extends Application{
     featured() {
         return window[this.appName].get(`${this.libraryAddress}/browse/featured-playlists`);
     }
+
+    newRelease() {
+        return window[this.appName].get(`${this.libraryAddress}/browse/new-releases`);
+    }
 }

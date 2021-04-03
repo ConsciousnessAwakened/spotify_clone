@@ -93,12 +93,14 @@ module.exports = {
                 }
             },
             animation: {
-                'fade-in' : 'fade-in 3s ease-in-out',
-                'fade-out' : 'fade-out 3s ease-in-out',
-                'fade-in-down': 'fade-in-down 0.5s ease-out',
-                'fade-out-down': 'fade-out-down 0.5s ease-out',
-                'fade-in-up': 'fade-in-up 0.5s ease-out',
-                'fade-out-up': 'fade-out-up 0.5s ease-out'
+                'caster-fade-in' : 'fade-in 3s ease-in-out',
+                'caster-fade-out' : 'fade-out 3s ease-in-out',
+                'fade-in' : 'fade-in 1s ease-in-out',
+                'fade-out' : 'fade-out 1s ease-in-out',
+                'fade-in-down': 'fade-in-down 1s ease-out',
+                'fade-out-down': 'fade-out-down 1s ease-out',
+                'fade-in-up': 'fade-in-up 1s ease-out',
+                'fade-out-up': 'fade-out-up 1s ease-out'
             },
             transitionDuration: {
                 '1500': '1500ms',
@@ -137,5 +139,7 @@ module.exports = {
         extend: {},
     },
 
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/line-clamp')
+    ],
 }

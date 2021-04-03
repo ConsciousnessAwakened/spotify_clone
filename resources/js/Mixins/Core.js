@@ -37,6 +37,10 @@ export default {
         }),
         ...mapActions('account',{
             getAccount : 'getData'
-        })
+        }),
+        ...mapActions('featured',[
+            'getFeatured',
+            'getNewReleases'
+        ])
     }
 }
