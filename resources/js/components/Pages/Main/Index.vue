@@ -1,7 +1,8 @@
 <template>
     <app>
         <profile class="mb-5" />
-        <featured :lists="featuredLists" />
+        <featured class="mb-5" :lists="featured" />
+        <featured class="mb-5" :lists="newRelease" />
     </app>
 </template>
 
@@ -22,7 +23,7 @@ export default {
     async mounted() {
         await this.getAccount();
         await this.getFeatured();
-        //await this.getNewReleases();
+        await this.getNewReleases();
     }
 }
 </script>

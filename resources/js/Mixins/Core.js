@@ -19,7 +19,8 @@ export default {
             profileImage : 'image'
         }),
         ...mapGetters('featured', {
-            featuredLists : 'featuredLists'
+            featured : 'featured',
+            newRelease : 'newRelease'
         })
     },
 
