@@ -43,8 +43,8 @@ export default new Vuex.Store({
                     type : OVERLAY_TYPE.IMAGE
                 },
                 meta : {
-                    search : 'summer',
-                    page : 2,
+                    search : 'drive',
+                    page : 1,
                     per_page : 80
                 },
             }

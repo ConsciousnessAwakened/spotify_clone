@@ -40,7 +40,7 @@ export default {
                 service : rootState.api[rootGetters.api].account(),
                 animateProcess : false,
                 successCallback : (response) => {
-                    console.log({accountGetData : response});
+                    //console.log({accountGetData : response});
 
                     commit('setData', transform(response.data, rootState.api[rootGetters.api].transformers.account));
                 }

@@ -4,12 +4,14 @@ export default {
 
     state : {
         lists : {
-            'featured' : []
+            'featured' : [],
+            'newRelease' : []
         }
     },
 
     getters : {
-        featuredLists: (state) => state.lists.featured
+        featured: (state) => state.lists.featured,
+        newRelease: (state) => state.lists.newRelease,
     },
 
     mutations : {
@@ -30,7 +32,12 @@ export default {
                 successCallback : (response) => {
                     console.log({getFeatured : response});
 
-                    commit('putList', {'featured' : transform(response.data, rootState.api[rootGetters.api].transformers.playlist).items});
+                    let transformedViaMix = transform(
+                        response.data,
+                        rootState.api[rootGetters.api].transformers.mix(response.data)
+                    ).items;
+
+                    commit('putList', {'featured' : transformedViaMix});
                 }
             }, {root : true});
         },
@@ -44,7 +51,12 @@ export default {
                 successCallback : (response) => {
                     console.log({getNewReleases : response});
 
-                    //commit('putList', {'featured' : transform(response.data, rootState.api[rootGetters.api].transformers.featured).items});
+                    let transformedViaMix = transform(
+                        response.data,
+                        rootState.api[rootGetters.api].transformers.mix(response.data)
+                    ).items;
+
+                    commit('putList', {'newRelease' : transformedViaMix});
                 }
             }, {root : true});
         },
