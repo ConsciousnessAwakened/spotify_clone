@@ -54,10 +54,6 @@ export default {
         });
     },
 
-    mounted() {
-
-    },
-
     methods: {
 
     }
