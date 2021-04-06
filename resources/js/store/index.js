@@ -40,7 +40,7 @@ export default new Vuex.Store({
                 stack : {
                     curated : false,
                     quality : OVERLAY_QUALITY.HIGH,
-                    type : OVERLAY_TYPE.IMAGE
+                    type : OVERLAY_TYPE.VIDEO
                 },
                 meta : {
                     search : 'drive',

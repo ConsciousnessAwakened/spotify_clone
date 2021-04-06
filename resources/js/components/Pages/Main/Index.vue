@@ -1,6 +1,6 @@
 <template>
     <app>
-        <profile class="mb-5" />
+        <profile/>
         <featured class="mb-5" :lists="featured" />
         <featured class="mb-5" :lists="newRelease" />
     </app>
@@ -10,11 +10,13 @@
 import App from "../../Layouts/App";
 import Profile from "./Profile";
 import Featured from "./Featured";
+import Sidebar from "./Player/Sidebar";
 
 export default {
     name: "Index",
 
     components: {
+        Sidebar,
         Featured,
         Profile,
         App
@@ -24,7 +26,7 @@ export default {
         await this.getAccount();
         await this.getFeatured();
         await this.getNewReleases();
-    }
+    },
 }
 </script>
 

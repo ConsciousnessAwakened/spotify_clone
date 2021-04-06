@@ -15,4 +15,24 @@ export default class Text {
 
         return result;
     }
+
+    static cFirst(text) {
+        if(!text){return false}
+
+        return text.charAt(0).toUpperCase() + text.slice(1);
+    }
+
+    static cWords(text) {
+        if(!text){return false}
+
+        let splitter = ' ';
+
+        let words = text.toLowerCase().split(splitter);
+
+        return words.reduce((payload, word)=>{
+            payload.push(word.charAt(0).toUpperCase() + word.slice(1));
+
+            return payload;
+        }, []).join(splitter);
+    }
 }
