@@ -10,7 +10,8 @@ export default {
             notification : state => state.notification
         }),
         ...mapGetters({
-            requestProcessing : 'processing'
+            requestProcessing : 'processing',
+            overlaySideBar : 'overlaySideBar'
         }),
         ...mapGetters('account',{
             displayName : 'name',
@@ -25,13 +26,16 @@ export default {
     },
 
     methods: {
+        ...mapMutations([
+            'toggleOverlaySidebar'
+        ]),
         ...mapActions([
             'request',
             'startProcessing',
             'finishProcessing',
             'stateAppAuthorization',
             'askAuthorization',
-            'authorized'
+            'authorized',
         ]),
         ...mapActions('moodCaster',{
             bootMoodCaster : 'boot',
