@@ -1,10 +1,13 @@
 <template>
-    <div class="overflow-hidden bg-black">
+    <div>
         <warping-cube/>
         <mood-caster/>
+        <overlay-sidebar/>
 
-        <div class="absolute px-2 w-full z-40">
-            <slot></slot>
+        <div class="absolute w-full z-30">
+            <slot name="header"></slot>
+
+            <slot name="content"></slot>
         </div>
     </div>
 </template>
@@ -12,11 +15,13 @@
 <script>
 import WarpingCube from "../Loaders/WarpingCube";
 import MoodCaster from "../Common/MoodCaster";
+import Overlay from "../Side/Overlay";
 
 export default {
     name: "App",
 
     components: {
+        OverlaySidebar : Overlay,
         MoodCaster,
         WarpingCube
     },

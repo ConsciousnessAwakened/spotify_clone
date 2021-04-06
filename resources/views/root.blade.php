@@ -16,7 +16,7 @@
 
         <script src="{{ mix('assets/js/app.js') }}" defer></script>
     </head>
-    <body>
+    <body class="overflow-x-hidden">
         @inertia
     </body>
 </html>

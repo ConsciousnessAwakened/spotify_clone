@@ -12,7 +12,7 @@
             leave-active-class="hidden"
             tag="div"
             class="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8">
-            <div v-for="(list, key) in lists" :key="list.id" v-if="!isHidden(key)" class="">
+            <div v-for="(list, key) in lists" :key="list.id" v-if="!isHidden(key)" class="mt-10 scaffoldGray">
                 <div v-if="list.type == 'playlist'">
                     <img class="w-full" loading="lazy" :src="list.image"/>
                     <div class="truncate text-sm font-semibold px-1" v-html="list.name"></div>

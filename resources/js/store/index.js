@@ -35,6 +35,9 @@ export default new Vuex.Store({
             status : {
                 processing : true
             },
+            sideBar : {
+                overlay : false
+            },
             mood : {
                 api : 'pexels',
                 stack : {

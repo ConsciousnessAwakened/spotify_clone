@@ -10,5 +10,15 @@ export const mutations = {
 
     appInstanceApi(state, value) {
         state.app.instance.api = value;
+    },
+
+    toggleOverlaySidebar(state) {
+        state.app.sideBar.overlay = !state.app.sideBar.overlay;
+
+        if (state.app.sideBar.overlay) {
+            document.body.style.setProperty("overflow-y", "hidden");
+        } else {
+            document.body.style.removeProperty("overflow-y");
+        }
     }
 }
