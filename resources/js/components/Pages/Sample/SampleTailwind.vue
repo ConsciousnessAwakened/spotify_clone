@@ -96,11 +96,7 @@
 
 <script>
 export default {
-    name: "Feature",
-
-    mounted() {
-
-    }
+    name: "SampleTailwind"
 }
 </script>
 

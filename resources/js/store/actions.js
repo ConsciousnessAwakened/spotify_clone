@@ -13,6 +13,11 @@ export let generic = {
 
         return new Promise((resolve, reject)=>{
 
+            if (payload.loaded) {
+                resolve(true);
+                return false;
+            }
+
             if (_.get(payload, 'animateProcess', true)) {
                 commit('stateProcess', true);
             }

@@ -4,31 +4,32 @@ export default {
 
     state : {
         lists : {
-            'featured' : [],
-            'newRelease' : []
+            'featured' : {value : [], loaded : false},
+            'newRelease' : {value : [], loaded : false},
         }
     },
 
     getters : {
-        featured: (state) => state.lists.featured,
-        newRelease: (state) => state.lists.newRelease,
+        featured: (state) => state.lists.featured.value,
+        newRelease: (state) => state.lists.newRelease.value,
     },
 
     mutations : {
         putList(state, payload) {
             Object.keys(payload).forEach((key) => {
-                state.lists = {...state.lists, [key] : payload[key]};
+                state.lists = {...state.lists, [key] : {value : payload[key], loaded : true}};
             });
         }
     },
 
     actions : {
-        getFeatured({commit, dispatch, rootState, rootGetters}) {
+        getFeatured({state, commit, dispatch, rootState, rootGetters}) {
 
             return dispatch('request', {
                 service : rootState.api[rootGetters.api].featured(),
                 animateProcess : false,
                 delayedResponse : 400,
+                loaded : state.lists['featured'].loaded,
                 successCallback : (response) => {
                     console.log({getFeatured : response});
 
@@ -42,12 +43,13 @@ export default {
             }, {root : true});
         },
 
-        getNewReleases({commit, dispatch, rootState, rootGetters}) {
+        getNewReleases({state, commit, dispatch, rootState, rootGetters}) {
 
             return dispatch('request', {
                 service : rootState.api[rootGetters.api].newRelease(),
                 animateProcess : false,
                 delayedResponse : 900,
+                loaded : state.lists['newRelease'].loaded,
                 successCallback : (response) => {
                     console.log({getNewReleases : response});
 
