@@ -20,5 +20,6 @@ Route::post('/authorization/ask', [\App\Http\Controllers\AuthorizationController
 
 Route::middleware(['authorized'])->group(function () {
     Route::get('/logout', [\App\Http\Controllers\AuthorizationController::class, 'logout']);
-    Route::get('/play', function(){return inertia('Pages/Main/Index');});
+    Route::get('/play', function(){return inertia('Pages/Main/Index', ['payload' => []]);});
+    Route::get('/another', function(){return inertia('Pages/Sample/AnotherPage');});
 });

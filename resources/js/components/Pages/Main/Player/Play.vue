@@ -10,13 +10,13 @@
 
 <script>
 import Sidebar from "./Sidebar";
-import Feature from "../../Sample/Feature";
+import SampleTailwind from "../../Sample/SampleTailwind";
 
 export default {
     name: "Play",
 
     components: {
-        Feature,
+        SampleTailwind,
         'side-bar' : Sidebar
     },
 
