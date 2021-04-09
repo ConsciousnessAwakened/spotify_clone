@@ -2,7 +2,8 @@
     <div>
         <warping-cube/>
         <mood-caster/>
-        <overlay-sidebar/>
+
+        <slot name="side"></slot>
 
         <div class="absolute w-full z-30">
             <slot name="header"></slot>

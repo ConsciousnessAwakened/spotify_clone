@@ -1,5 +1,7 @@
 <template>
     <app>
+        <overlay-sidebar slot="side"/>
+
         <profile slot="header" />
 
         <div class="mt-5" slot="content">
@@ -11,7 +13,7 @@
                             Another Page
                         </p>
                         <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                            Just another page.
+                            Another Page
                         </p>
                     </div>
                 </div>
@@ -29,9 +31,9 @@ export default {
     name: "AnotherPage",
 
     components: {
+        OverlaySidebar: Overlay,
         App,
         Profile,
-        OverlaySidebar: Overlay,
     },
 
     async mounted() {

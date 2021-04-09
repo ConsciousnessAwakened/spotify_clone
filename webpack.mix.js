@@ -13,9 +13,9 @@ const mix = require('laravel-mix');
 
 mix.disableNotifications();
 
-mix.js('resources/js/app.js', 'public/assets/js').vue();
+mix.js('resources/js/app.js', 'public/compiled/js').vue();
 
-mix.postCss('resources/css/app.css', 'public/assets/css', [
+mix.postCss('resources/css/app.css', 'public/compiled/css', [
     require('tailwindcss')
 ]);
 
