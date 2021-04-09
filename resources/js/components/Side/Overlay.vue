@@ -7,7 +7,7 @@
             <h1>Sidebar</h1>
 
             <inertia-link class="block" href="/play" preserve-state>Play</inertia-link>
-            <inertia-link class="block" href="/another" preserve-state>Feature</inertia-link>
+            <inertia-link class="block" href="/another" preserve-state>Another Page</inertia-link>
         </aside>
     </div>
 </template>

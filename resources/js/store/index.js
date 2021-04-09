@@ -11,7 +11,7 @@ import Client from "../Classes/Concrete/Client";
 
 import moodCaster from "../modules/mood/caster";
 import account from "../modules/account";
-import featured from "../modules/featured";
+import shelf from "../modules/shelf";
 
 window.Vue.use(Vuex);
 
@@ -19,7 +19,7 @@ export default new Vuex.Store({
     modules : {
         account,
         moodCaster,
-        featured
+        shelf
     },
     state : {
         api : api,

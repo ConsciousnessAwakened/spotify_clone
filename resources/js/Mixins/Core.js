@@ -19,7 +19,7 @@ export default {
             accountUrl : 'accountUrl',
             profileImage : 'image'
         }),
-        ...mapGetters('featured', {
+        ...mapGetters('shelf', {
             featured : 'featured',
             newRelease : 'newRelease'
         })
@@ -43,7 +43,7 @@ export default {
         ...mapActions('account',{
             getAccount : 'getData'
         }),
-        ...mapActions('featured',[
+        ...mapActions('shelf',[
             'getFeatured',
             'getNewReleases'
         ])

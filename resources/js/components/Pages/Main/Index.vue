@@ -1,6 +1,9 @@
 <template>
     <app>
+        <overlay-sidebar slot="side"/>
+
         <profile slot="header" />
+
         <div class="mt-5" slot="content">
             <shelf class="mb-5 scaffoldGray" :lists="featured" :type="0" />
             <shelf class="mb-5 scaffoldGray" :lists="newRelease" :type="1" />
@@ -12,11 +15,13 @@
 import App from "../../Layouts/App";
 import Profile from "./Profile";
 import Shelf from "./Shelf";
+import Overlay from "../../Side/Overlay";
 
 export default {
     name: "Index",
 
     components: {
+        OverlaySidebar : Overlay,
         Shelf,
         Profile,
         App
