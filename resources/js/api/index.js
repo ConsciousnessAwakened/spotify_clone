@@ -96,7 +96,7 @@ export default {
                         model : (item) => {
                             return new Album({
                                 ...common(item),
-                                albumType : item.album_type,
+                                albumType : Text.cWords(item.album_type),
                                 artists : item.artists,
                                 images : item.images
                             });
