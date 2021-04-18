@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="icon" href="{{ asset('images/bilberry/icons/bilberry_icon.png') }}">
+        <link rel="icon" href="{{ asset('images/app/icons/icon.png') }}">
         <title>{{ env('APP_NAME') }}</title>
 
         <!-- Fonts -->

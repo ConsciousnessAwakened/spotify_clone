@@ -3,7 +3,7 @@
         <div class="max-w-md w-full space-y-2">
             <div class="flex justify-center">
 
-                <img class="w-3/4" :src="'images/bilberry/logos/bilberry_logo.png'" />
+                <img class="w-full" :src="'images/app/logos/logo.png'" />
 
             </div>
             <div class="w-full bg-gradient-to-r from-transparent via-white from-transparent" style="height: 2px;"></div>

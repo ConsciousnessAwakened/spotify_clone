@@ -1,7 +1,7 @@
-![Bilberry](./public/images/bilberry/logos/bilberry_logo.png)
-### Bilberry is a cloud enabled music/media player dependable on a mood you want.
+![|IMoody](./public/images/app/logos/logo.png)
+### IMoody is a cloud enabled mood player that aims to satisfy the user's emotion..
 
-mood foundations tracks, images and videos are made possible by the following:
+mood foundations are made possible by the following:
 
 <div style="height:70px; display: flex; align-items: center;">
 
