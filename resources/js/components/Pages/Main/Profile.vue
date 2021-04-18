@@ -6,11 +6,11 @@
             </svg>
         </div>
         <div class="relative py-2 ml-auto flex items-center space-x-3">
-            <div class="relative">
+            <!--<div class="relative">
                 <div class="flex px-2 items-center rounded cursor-pointer text-gray-700 hover:text-bilberry-primary">
                     <a class="text-base font-semibold">{{ followers }} Followers</a>
                 </div>
-            </div>
+            </div>-->
             <div class="h-12 bg-gradient-to-t from-transparent via-gray-500 from-transparent" style="width: 2px;">&nbsp;</div>
             <div class="bg-cover bg-transparent rounded-md w-12 h-12 cursor-pointer" :style="{'background-image': 'url(' + profileImage + ')'}" @click="profileDropDown = !profileDropDown">&nbsp;</div>
             <div class="relative">
