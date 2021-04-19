@@ -42,8 +42,8 @@ export default new Vuex.Store({
                 api : 'pexels',
                 stack : {
                     curated : false,
-                    quality : OVERLAY_QUALITY.HIGH,
-                    type : OVERLAY_TYPE.VIDEO
+                    quality : OVERLAY_QUALITY.LOW,
+                    type : OVERLAY_TYPE.IMAGE
                 },
                 meta : {
                     search : 'drive',

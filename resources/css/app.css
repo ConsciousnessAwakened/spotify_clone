@@ -10,6 +10,18 @@
     border: 1px solid gray;
 }
 
+.scaffoldGreen {
+    border: 1px solid green;
+}
+
+.scaffoldBlue {
+    border: 1px solid blue;
+}
+
+.scaffoldRed {
+    border: 1px solid red;
+}
+
 .scaffoldLight {
     border: 1px solid yellow;
 }
