@@ -15,10 +15,10 @@ export const mutations = {
     toggleOverlaySidebar(state) {
         state.app.sideBar.overlay = !state.app.sideBar.overlay;
 
-        if (state.app.sideBar.overlay) {
-            document.body.style.setProperty("overflow-y", "hidden");
-        } else {
-            document.body.style.removeProperty("overflow-y");
-        }
+        // if (state.app.sideBar.overlay) {
+        //     document.body.style.setProperty("overflow-y", "hidden");
+        // } else {
+        //     document.body.style.removeProperty("overflow-y");
+        // }
     }
 }
