@@ -6,8 +6,8 @@
 
         <scrollable class="ease-out transition-all duration-300 z-40 scaffoldGray" :class="overlaySideBar ? 'ml-72' : ''" slot="content">
             <div slot="body">
-                <shelf class="mb-5 scaffoldGray" :lists="featured" :type="0" />
-                <shelf class="mb-5 scaffoldGray" :lists="newRelease" :type="1" />
+                <shelf class="mb-5 scaffoldGray" :title="'Spotify Featured'" :lists="featured" :type="0" />
+                <shelf class="mb-5 scaffoldGray" :title="'Spotify New Releases'" :lists="newRelease" :type="1" />
             </div>
         </scrollable>
 

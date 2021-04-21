@@ -24,7 +24,7 @@
 
                 <div v-if="profileDropDown" class="origin-top-right border-gray-400 border absolute right-0 mt-1 w-36 bg-white focus:outline-none rounded-lg">
                     <a :href="accountUrl" target="_blank" class="px-2 py-1 block text-sm font-semibold text-gray-700 hover:bg-bilberry-dark hover:text-gray-100 rounded-lg">View Profile</a>
-                    <inertia-link href="/logout" class="px-2 py-1 block text-sm font-semibold text-gray-700 hover:bg-bilberry-dark hover:text-gray-100 rounded-lg">Sign out</inertia-link>
+                    <inertia-link replace href="/logout" class="px-2 py-1 block text-sm font-semibold text-gray-700 hover:bg-bilberry-dark hover:text-gray-100 rounded-lg">Sign out</inertia-link>
                 </div>
             </div>
         </div>
