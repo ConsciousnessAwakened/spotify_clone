@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="space-y-2" v-if="list.type == 'playlist'">
-            <img class="ml-1 mt-1 h-8" :src="'images/spotify/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png'" />
+            <img class="ml-1 mt-1 h-8 hidden" :src="'images/spotify/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png'" />
 
             <div class="w-full">
                 <inertia-link href="/another" preserve-state preserve-scroll>
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="space-y-2" v-if="list.type == 'album'">
-            <img class="ml-1 mt-1 h-8" :src="'images/spotify/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png'" />
+            <img class="ml-1 mt-1 h-8 hidden" :src="'images/spotify/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png'" />
 
             <div class="w-full">
                 <inertia-link href="/another" preserve-state preserve-scroll>
