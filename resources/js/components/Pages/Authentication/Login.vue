@@ -12,7 +12,7 @@
                     @click.native="continueWith('spotify')"
                     :theme="{text : 'light', background : 'bg-spotify-darkGreen hover:bg-spotify-green'}"
                     :size="'lg'"
-                    :logo="'images/spotify/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_White.png'"
+                    :logo="api.spotify.images.icon.white"
                     :label="{value : 'Continue with Spotify'}"></moody-button>
 
                 <moody-button

@@ -3,7 +3,7 @@
         <div class="flex justify-between">
             <div class="ml-1 flex items-center">
                 <transition name="item-from-right">
-                    <span :style="{'--key': 0}" v-if="lists.length" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-700 to-gray-400" v-html="title">
+                    <span :style="{'--key': 0}" v-if="lists.length" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-700 to-gray-400" v-html="origin.app ? Text.cWords(origin.app) + ' ' + Text.cWords(title) : Text.cWords(title)">
                     </span>
                 </transition>
             </div>
@@ -16,8 +16,8 @@
             name="item-from-right"
             class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8"
             :style="{ '--total': lists.length }">
-            <div v-for="(list, key) in lists" :key="list.id" v-if="type === 0 ? !isHidden(key) : true" class="scaffoldGray" :style="{'--key': key}">
-                <standard-card :list="list" />
+            <div v-for="(list, key) in lists" :key="list.id" v-if="type === 0 ? !isHidden(key) : true" class="" :style="{'--key': key}">
+                <standard-card :list="list" :origin="origin"/>
             </div>
         </transition-group>
 
@@ -74,7 +74,13 @@ export default {
         title : {
             type: String,
             default: 'Title'
-        }
+        },
+        origin: {
+            type: Object,
+            default: () => {return{
+                value : 'internal',
+            }}
+        },
     },
 }
 </script>

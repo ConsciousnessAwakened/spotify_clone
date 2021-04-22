@@ -6,8 +6,19 @@
 
         <scrollable class="ease-out transition-all duration-300 z-40 scaffoldGray" :class="overlaySideBar ? 'ml-72' : ''" slot="content">
             <div slot="body">
-                <moody-shelf class="mb-5 scaffoldGray" :title="'Spotify Featured'" :lists="featured" :type="0" />
-                <moody-shelf class="mb-5 scaffoldGray" :title="'Spotify New Releases'" :lists="newRelease" :type="1" />
+                <moody-shelf
+                    class="mb-5"
+                    :title="'featured'"
+                    :lists="featured"
+                    :origin="{value : 'external', app : 'spotify', icon : api['spotify'].images.icon.black}"
+                    :type="0" />
+
+                <moody-shelf
+                    class="mb-5"
+                    :title="'new releases'"
+                    :lists="newRelease"
+                    :origin="{value : 'external', app : 'spotify', icon : api['spotify'].images.icon.black}"
+                    :type="0" />
             </div>
         </scrollable>
 
