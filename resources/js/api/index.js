@@ -11,6 +11,18 @@ export default {
             token : 'https://accounts.spotify.com/api/token',
             library : 'https://api.spotify.com/v1',
         },
+        images : {
+            icon : {
+                black : 'images/spotify/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Black.png',
+                green : 'images/spotify/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Green.png',
+                white : 'images/spotify/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_White.png',
+            },
+            logo : {
+                black : 'images/spotify/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png',
+                green : 'images/spotify/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Green.png',
+                white : 'images/spotify/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_White.png',
+            }
+        },
         scopes : [
             {key : 'ugc-image-upload', description : ''},
             {key : 'user-read-recently-played', description : ''},
@@ -64,7 +76,8 @@ export default {
                                 description : item.description,
                                 image : item.images[0].url,
                                 tracks : item.tracks,
-                                owner : item.owner
+                                owner : item.owner,
+                                link : item.external_urls.spotify
                             }));
 
                             return result;
@@ -87,7 +100,8 @@ export default {
                                 description : item.description,
                                 image : item.images[0].url,
                                 tracks : item.tracks,
-                                owner : item.owner
+                                owner : item.owner,
+                                link : item.external_urls.spotify
                             });
                         }
                     },
@@ -98,7 +112,8 @@ export default {
                                 ...common(item),
                                 albumType : Text.cWords(item.album_type),
                                 artists : item.artists,
-                                images : item.images
+                                images : item.images,
+                                link : item.external_urls.spotify
                             });
                         }
                     },

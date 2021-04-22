@@ -8,6 +8,8 @@ export default class Album {
         this.artists = args.artists || [];
         this.images = args.images || [];
         this.type = "album";
+
+        this.link = args.link || null;
     }
 }
 
