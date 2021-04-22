@@ -28,8 +28,8 @@ export default {
         ...mapGetters('account',{
             displayName : 'name',
             followers : 'followers',
-            account_url : 'url',
-            profile : 'profile'
+            account_url : 'accountUrl',
+            profile : 'profileImage'
         })
     },
 
