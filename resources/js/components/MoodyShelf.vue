@@ -48,11 +48,11 @@
 </template>
 
 <script>
-import ShelfMixin from "../../../Mixins/Featured/ShelfMixin";
-import Standard from "../../Cards/Standard";
+import ShelfMixin from "../Mixins/Featured/ShelfMixin";
+import Standard from "./Cards/Standard";
 
 export default {
-    name: "Shelf",
+    name: "MoodyShelf",
 
     components: {
         'StandardCard' : Standard

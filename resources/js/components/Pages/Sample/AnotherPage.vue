@@ -93,7 +93,7 @@
 <script>
 import App from "../../Layouts/App";
 import Overlay from "../../Side/Overlay";
-import Profile from "../Main/Profile";
+import Profile from "../../Profile";
 import Scrollable from "../../Layouts/Scrollable";
 
 export default {

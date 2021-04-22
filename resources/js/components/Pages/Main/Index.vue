@@ -6,8 +6,8 @@
 
         <scrollable class="ease-out transition-all duration-300 z-40 scaffoldGray" :class="overlaySideBar ? 'ml-72' : ''" slot="content">
             <div slot="body">
-                <shelf class="mb-5 scaffoldGray" :title="'Spotify Featured'" :lists="featured" :type="0" />
-                <shelf class="mb-5 scaffoldGray" :title="'Spotify New Releases'" :lists="newRelease" :type="1" />
+                <moody-shelf class="mb-5 scaffoldGray" :title="'Spotify Featured'" :lists="featured" :type="0" />
+                <moody-shelf class="mb-5 scaffoldGray" :title="'Spotify New Releases'" :lists="newRelease" :type="1" />
             </div>
         </scrollable>
 
@@ -20,8 +20,8 @@
 
 <script>
 import App from "../../Layouts/App";
-import Profile from "./Profile";
-import Shelf from "./Shelf";
+import Profile from "../../Profile";
+import MoodyShelf from "../../MoodyShelf";
 import Overlay from "../../Side/Overlay";
 import Scrollable from "../../Layouts/Scrollable";
 
@@ -30,7 +30,7 @@ export default {
 
     components: {
         OverlaySidebar : Overlay,
-        Shelf,
+        MoodyShelf,
         Profile,
         Scrollable,
         App

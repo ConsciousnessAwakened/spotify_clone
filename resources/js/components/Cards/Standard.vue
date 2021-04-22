@@ -1,8 +1,6 @@
 <template>
     <div>
-        <div class="space-y-2" v-if="list.type == 'playlist'">
-            <img class="ml-1 mt-1 h-8 hidden" :src="'images/spotify/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png'" />
-
+        <div class="space-y-2 pb-2" v-if="list.type == 'playlist'">
             <div class="w-full">
                 <inertia-link href="/another" preserve-state preserve-scroll>
                     <img class="w-full cursor-pointer" loading="lazy" :src="list.image"/>
@@ -13,30 +11,22 @@
             </div>
 
             <div class="w-full px-2 space-y-1">
-                <div @click="" class="w-full flex justify-center text-sm font-medium rounded-full text-gray-600 scaffoldGray">
-                    <div class="relative px-2 py-1">
-                    <span class="absolute left-0 inset-y-0 flex items-center pl-2">
-                        <img class="h-6 w-6" :src="'images/spotify/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Black.png'" />
-                    </span>
+                <moody-button
+                    @click.native=""
+                    :theme="{border: 'scaffoldGray'}"
+                    :size="'sm'"
+                    :logo="'images/spotify/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Black.png'"
+                    :label="{value : 'PLAY ON SPOTIFY', class : 'tracking-tighter uppercase hover:underline'}"></moody-button>
 
-                        <span class="ml-8 text-xs tracking-tight cursor-pointer hover:underline uppercase">PLAY ON SPOTIFY</span>
-                    </div>
-                </div>
-
-                <div @click="" class="w-full flex justify-center text-sm font-medium rounded-full text-gray-600 scaffoldGray">
-                    <div class="relative px-2 py-1">
-                        <span class="absolute left-0 inset-y-0 flex items-center pl-2">
-                            <img class="h-6 w-6" :src="'images/play.png'" />
-                        </span>
-
-                        <span class="ml-8 text-xs tracking-widest cursor-pointer hover:underline uppercase">PLAY PREVIEW</span>
-                    </div>
-                </div>
+                <moody-button
+                    @click.native=""
+                    :theme="{border: 'scaffoldGray'}"
+                    :size="'sm'"
+                    :logo="'images/play.png'"
+                    :label="{value : 'PLAY PREVIEW', class : 'tracking-tighter uppercase hover:underline'}"></moody-button>
             </div>
         </div>
-        <div class="space-y-2" v-if="list.type == 'album'">
-            <img class="ml-1 mt-1 h-8 hidden" :src="'images/spotify/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_Black.png'" />
-
+        <div class="space-y-2 pb-2" v-if="list.type == 'album'">
             <div class="w-full">
                 <inertia-link href="/another" preserve-state preserve-scroll>
                     <img class="w-full cursor-pointer" loading="lazy" :src="list.images[0].url"/>
@@ -49,33 +39,33 @@
             </div>
 
             <div class="w-full px-2 space-y-2">
-                <div @click="" class="w-full flex justify-center text-sm font-medium rounded-full text-gray-600 scaffoldGray">
-                    <div class="relative px-2 py-1">
-                    <span class="absolute left-0 inset-y-0 flex items-center pl-2">
-                        <img class="h-6 w-6" :src="'images/spotify/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Black.png'" />
-                    </span>
+                <moody-button
+                    @click.native=""
+                    :theme="{border: 'scaffoldGray'}"
+                    :size="'sm'"
+                    :logo="'images/spotify/spotify-icons-logos/icons/01_RGB/02_PNG/Spotify_Icon_RGB_Black.png'"
+                    :label="{value : 'PLAY ON SPOTIFY', class : 'tracking-tighter uppercase hover:underline'}"></moody-button>
 
-                        <span class="ml-8 text-xs tracking-tight cursor-pointer hover:underline uppercase">PLAY ON SPOTIFY</span>
-                    </div>
-                </div>
-
-                <div @click="" class="w-full flex justify-center text-sm font-medium rounded-full text-gray-600 scaffoldGray">
-                    <div class="relative px-2 py-1">
-                        <span class="absolute left-0 inset-y-0 flex items-center pl-2">
-                            <img class="h-6 w-6" :src="'images/play.png'" />
-                        </span>
-
-                        <span class="ml-8 text-xs tracking-widest cursor-pointer hover:underline uppercase">PLAY PREVIEW</span>
-                    </div>
-                </div>
+                <moody-button
+                    @click.native=""
+                    :theme="{border: 'scaffoldGray'}"
+                    :size="'sm'"
+                    :logo="'images/play.png'"
+                    :label="{value : 'PLAY PREVIEW', class : 'tracking-tighter uppercase hover:underline'}"></moody-button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import MoodyButton from "../MoodyButton";
+
 export default {
     name: "Standard",
+
+    components : {
+        MoodyButton
+    },
 
     props: {
         list: {
