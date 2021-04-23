@@ -4,21 +4,21 @@
 
         <profile slot="header" />
 
-        <scrollable class="ease-out transition-all duration-300 z-40 scaffoldGray" :class="overlaySideBar ? 'ml-72' : ''" slot="content">
+        <scrollable class="ease-out transition-all duration-300 z-40 scaffoldGray" :class="overlaySideBar ? 'ml-52' : ''" slot="content">
             <div slot="body">
                 <moody-shelf
                     class="mb-5"
                     :title="'featured'"
-                    :lists="featured"
+                    :lists="spotifyFeatured"
                     :origin="{value : 'external', app : 'spotify', icon : api['spotify'].images.icon.black}"
                     :type="0" />
 
                 <moody-shelf
                     class="mb-5"
                     :title="'new releases'"
-                    :lists="newRelease"
+                    :lists="spotifyNewRelease"
                     :origin="{value : 'external', app : 'spotify', icon : api['spotify'].images.icon.black}"
-                    :type="0" />
+                    :type="1" />
             </div>
         </scrollable>
 
@@ -49,8 +49,8 @@ export default {
 
     async mounted() {
         await this.getAccount();
-        await this.getFeatured();
-        await this.getNewReleases();
+        await this.getFeatured({source : 'spotify'});
+        await this.getNewReleases({source : 'spotify'});
     },
 }
 </script>
