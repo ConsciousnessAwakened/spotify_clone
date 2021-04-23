@@ -46,7 +46,7 @@ export default {
     computed: {
         spacingClass() {
             return {
-                'sm': 'px-2 py-2',
+                'sm': 'px-1 py-1',
                 'md' : 'px-2 py-2',
                 'lg' : 'px-4 py-3'
             }[this.size];
@@ -54,7 +54,7 @@ export default {
 
         labelSpaceFromLogo(){
             return this.logo ? {
-                'sm': 'ml-7',
+                'sm': 'ml-6',
                 'md' : 'ml-9',
                 'lg' : 'ml-11'
             }[this.size] : '';
@@ -70,7 +70,7 @@ export default {
 
         logoClass() {
             return {
-                'sm': 'h-6 w-6',
+                'sm': 'h-5 w-5',
                 'md' : 'h-8 w-8',
                 'lg' : 'h-10 w-10'
             }[this.size];

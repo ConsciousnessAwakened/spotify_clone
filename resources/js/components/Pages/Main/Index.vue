@@ -4,17 +4,17 @@
 
         <profile slot="header" />
 
-        <scrollable class="ease-out transition-all duration-300 z-40 scaffoldGray" :class="overlaySideBar ? 'ml-52' : ''" slot="content">
+        <!--<scrollable class="ease-out transition-all duration-300 z-40 scaffoldGray" :class="overlaySideBar ? 'ml-52' : ''" slot="content">-->
+        <scrollable class="z-40 scaffoldGray" slot="content">
             <div slot="body">
                 <moody-shelf
-                    class="mb-5"
+                    class="mb-5 scaffoldGray"
                     :title="'featured'"
                     :lists="spotifyFeatured"
                     :origin="{value : 'external', app : 'spotify', icon : api['spotify'].images.icon.black}"
                     :type="0" />
-
                 <moody-shelf
-                    class="mb-5"
+                    class="mb-5 scaffoldGray"
                     :title="'new releases'"
                     :lists="spotifyNewRelease"
                     :origin="{value : 'external', app : 'spotify', icon : api['spotify'].images.icon.black}"

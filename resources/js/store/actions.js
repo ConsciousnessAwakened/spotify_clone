@@ -160,7 +160,7 @@ export default {
             animateProcess : false,
             successCallback : (response) => {
                 if (response.data['isSuccessful']){
-                    state.inertia.get('/play');
+                    state.inertia.get('/browse');
                 }
             }
         });

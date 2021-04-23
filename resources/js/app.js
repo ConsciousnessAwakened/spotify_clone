@@ -11,6 +11,7 @@ InertiaProgress.init()
 window.Vue.mixin(Core);
 window.Vue.use(plugin);
 window.Vue.prototype.Text = window.Text;
+window.Vue.prototype.$route = route;
 
 Inertia.on('start', (event) => {});
 Inertia.on('finish', (event) => {});
