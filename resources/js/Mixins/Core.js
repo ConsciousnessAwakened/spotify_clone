@@ -20,8 +20,8 @@ export default {
             profileImage : 'image'
         }),
         ...mapGetters('shelf', {
-            featured : 'featured',
-            newRelease : 'newRelease'
+            spotifyFeatured : 'spotifyFeatured',
+            spotifyNewRelease : 'spotifyNewRelease'
         })
     },
 

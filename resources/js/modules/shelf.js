@@ -4,61 +4,78 @@ export default {
 
     state : {
         lists : {
-            'featured' : {value : [], loaded : false},
-            'newRelease' : {value : [], loaded : false},
+            spotify : {
+                'featured' : {value : [], loaded : false},
+                'newRelease' : {value : [], loaded : false},
+            }
         }
     },
 
     getters : {
-        featured: (state) => state.lists.featured.value,
-        newRelease: (state) => state.lists.newRelease.value,
+        spotifyFeatured: (state) => state.lists.spotify.featured.value,
+        spotifyNewRelease: (state) => state.lists.spotify.newRelease.value,
     },
 
     mutations : {
         putList(state, payload) {
-            Object.keys(payload).forEach((key) => {
-                state.lists = {...state.lists, [key] : {value : payload[key], loaded : true}};
+            Object.keys(payload.value).forEach((key) => {
+                state.lists[payload.source] = {
+                    ...state.lists[payload.source],
+                    [key] : {value : payload.value[key], loaded : true}
+                };
             });
         }
     },
 
     actions : {
-        getFeatured({state, commit, dispatch, rootState, rootGetters}) {
+        getFeatured({state, commit, dispatch, rootState, rootGetters}, payload) {
 
             return dispatch('request', {
-                service : rootState.api[rootGetters.api].featured(),
+                //service : rootState.api[rootGetters.api].featured(),
+                service : rootState.api[payload.source].featured(),
                 animateProcess : false,
                 delayedResponse : 400,
-                loaded : state.lists['featured'].loaded,
+                loaded : state.lists[payload.source]['featured'].loaded,
                 successCallback : (response) => {
                     console.log({getFeatured : response});
 
                     let transformedViaMix = transform(
                         response.data,
-                        rootState.api[rootGetters.api].transformers.mix(response.data)
+                        rootState.api[payload.source].transformers.mix(response.data)
                     ).items;
 
-                    commit('putList', {'featured' : transformedViaMix});
+                    commit('putList', {
+                        source : payload.source,
+                        value : {
+                            'featured' : transformedViaMix
+                        }
+                    });
                 }
             }, {root : true});
         },
 
-        getNewReleases({state, commit, dispatch, rootState, rootGetters}) {
+        getNewReleases({state, commit, dispatch, rootState, rootGetters}, payload) {
 
             return dispatch('request', {
-                service : rootState.api[rootGetters.api].newRelease(),
+                //service : rootState.api[rootGetters.api].newRelease(),
+                service : rootState.api[payload.source].newRelease(),
                 animateProcess : false,
                 delayedResponse : 900,
-                loaded : state.lists['newRelease'].loaded,
+                loaded : state.lists[payload.source]['newRelease'].loaded,
                 successCallback : (response) => {
                     console.log({getNewReleases : response});
 
                     let transformedViaMix = transform(
                         response.data,
-                        rootState.api[rootGetters.api].transformers.mix(response.data)
+                        rootState.api[payload.source].transformers.mix(response.data)
                     ).items;
 
-                    commit('putList', {'newRelease' : transformedViaMix});
+                    commit('putList', {
+                        source : payload.source,
+                        value : {
+                            'newRelease' : transformedViaMix
+                        }
+                    });
                 }
             }, {root : true});
         },
