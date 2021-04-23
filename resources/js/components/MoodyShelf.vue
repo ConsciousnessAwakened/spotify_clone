@@ -14,7 +14,7 @@
         <transition-group
             tag="div"
             name="item-from-right"
-            class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8"
+            class="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8"
             :style="{ '--total': lists.length }">
             <div v-for="(list, key) in lists" :key="list.id" v-if="type === 0 ? !isHidden(key) : true" class="" :style="{'--key': key}">
                 <standard-card :list="list" :origin="origin"/>
