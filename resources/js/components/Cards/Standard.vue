@@ -1,7 +1,7 @@
 <template>
     <div class="scaffoldGray space-y-2 pb-2">
         <div class="w-full" v-if="list.type == 'playlist'">
-            <inertia-link href="/another" preserve-state preserve-scroll>
+            <inertia-link :href="$route('play', list.id)" preserve-state preserve-scroll>
                 <img class="w-full cursor-pointer" loading="lazy" :src="list.image"/>
             </inertia-link>
 
@@ -9,8 +9,8 @@
             <div class="line-clamp-2 text-xs px-1" v-html="list.description" style="height: 30px;"></div>
         </div>
         <div class="w-full" v-if="list.type == 'album'">
-            <inertia-link href="/another" preserve-state preserve-scroll>
-                <img class="w-full cursor-pointer" loading="lazy" :src="list.images[0].url"/>
+            <inertia-link :href="$route('play', list.id)" preserve-state preserve-scroll>
+                <img class="w-full cursor-pointer" loading="lazy" :src="list.images[0].url" />
             </inertia-link>
             <div class="flex px-1 justify-between">
                 <div class="truncate text-sm font-semibold" v-html="list.name"></div>

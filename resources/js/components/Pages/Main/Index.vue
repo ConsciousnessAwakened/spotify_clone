@@ -13,7 +13,6 @@
                     :lists="spotifyFeatured"
                     :origin="{value : 'external', app : 'spotify', icon : api['spotify'].images.icon.black}"
                     :type="0" />
-
                 <moody-shelf
                     class="mb-5 scaffoldGray"
                     :title="'new releases'"

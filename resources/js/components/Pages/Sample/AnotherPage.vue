@@ -14,7 +14,7 @@
                                 Another Page
                             </p>
                             <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                                <inertia-link class="block" href="/play" preserve-state preserve-scroll>Play</inertia-link>
+                                <inertia-link class="block" href="/browse" preserve-state preserve-scroll>Browse</inertia-link>
                             </p>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                                 Another Page1
                             </p>
                             <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                                <inertia-link class="block" href="/play" preserve-state preserve-scroll>Play</inertia-link>
+                                <inertia-link class="block" href="/browse" preserve-state preserve-scroll>Browse</inertia-link>
                             </p>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                 Another Page2
                             </p>
                             <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                                <inertia-link class="block" href="/play" preserve-state preserve-scroll>Play</inertia-link>
+                                <inertia-link class="block" href="/browse" preserve-state preserve-scroll>Browse</inertia-link>
                             </p>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                                 Another Page3
                             </p>
                             <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                                <inertia-link class="block" href="/play" preserve-state preserve-scroll>Play</inertia-link>
+                                <inertia-link class="block" href="/browse" preserve-state preserve-scroll>Browse</inertia-link>
                             </p>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                                 Another Page4
                             </p>
                             <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                                <inertia-link class="block" href="/play" preserve-state preserve-scroll>Play</inertia-link>
+                                <inertia-link class="block" href="/browse" preserve-state preserve-scroll>Browse</inertia-link>
                             </p>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                                 Another Page5
                             </p>
                             <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                                <inertia-link class="block" href="/play" preserve-state preserve-scroll>Play</inertia-link>
+                                <inertia-link class="block" href="/browse" preserve-state preserve-scroll>Browse</inertia-link>
                             </p>
                         </div>
                     </div>

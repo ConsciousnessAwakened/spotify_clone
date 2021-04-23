@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers\RouteServiceProvider;
 use App\Services\Blueprint\ExpiredTokenInterface;
 use App\Traits\SessionHandler;
 use Illuminate\Http\JsonResponse;
@@ -69,6 +70,6 @@ class AuthorizationController extends Controller
 
         \Log::debug(["Logout" => Session::all()]);
 
-        return redirect('/play');
+        return redirect(RouteServiceProvider::HOME);
     }
 }

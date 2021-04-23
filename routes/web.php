@@ -19,7 +19,8 @@ Route::post('/callback', [\App\Http\Controllers\AuthorizationController::class, 
 Route::post('/authorization/ask', [\App\Http\Controllers\AuthorizationController::class, 'askAuthorization']);
 
 Route::middleware(['authorized'])->group(function () {
-    Route::get('/logout', [\App\Http\Controllers\AuthorizationController::class, 'logout']);
-    Route::get('/play', function(){return inertia('Pages/Main/Index', ['payload' => []]);});
+    Route::get('/logout', [\App\Http\Controllers\AuthorizationController::class, 'logout'])->name('logout');
+    Route::get('/browse', function(){return inertia('Pages/Main/Index', ['payload' => []]);});
+    Route::get('/play/{id}', function(){return inertia('Pages/Sample/Moody');})->name('play');
     Route::get('/another', function(){return inertia('Pages/Sample/AnotherPage');});
 });

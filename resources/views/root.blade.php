@@ -14,6 +14,7 @@
 
         <link href="{{ mix('compiled/css/app.css') }}" rel="stylesheet">
 
+        @routes
         <script src="{{ mix('compiled/js/app.js') }}" defer></script>
     </head>
     <body class="overflow-x-hidden overflow-y-hidden">

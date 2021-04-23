@@ -6,7 +6,7 @@
             :class="overlaySideBar ? 'translate-x-0' : '-translate-x-full'">
             <h1>Sidebar</h1>
 
-            <inertia-link class="block" href="/play" preserve-state preserve-scroll>Play</inertia-link>
+            <inertia-link class="block" href="/browse" preserve-state preserve-scroll>Browse</inertia-link>
             <inertia-link class="block" href="/another" preserve-state preserve-scroll>Another Page</inertia-link>
         </aside>
     </div>
