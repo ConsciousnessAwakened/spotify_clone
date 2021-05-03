@@ -1,6 +1,6 @@
 <template>
     <app>
-        <div slot="content" v-if="askAuthorizationSuggested" class="animate-fade-in-down">
+        <div slot="content" v-if="askAuthorizationSuggested" class="">
             <login />
         </div>
     </app>
