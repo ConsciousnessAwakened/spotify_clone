@@ -26,6 +26,15 @@ export default {
 
     async mounted() {
         await this.getAccount();
+
+        if (!route().params.id || !route().params.type) {
+            this.$inertia.get('/browse');
+        }
+
+        console.log({
+            id : route().params.id,
+            type : route().params.type
+        });
     }
 }
 </script>
