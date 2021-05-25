@@ -27,7 +27,7 @@
         "@tailwindcss/line-clamp": "^0.2.0",
         "json-map-transform": "^1.2.6",
         "moment": "^2.29.1",
-        "node-sass": "^5.0.0",
+        "node-sass": "^6.0.0",
         "vue": "^2.6.12",
         "vuex": "^3.6.2"
     }
