@@ -15,6 +15,7 @@ export default {
         id: null,
         product: null,
         type: null,
+        loaded : false
     },
 
     getters : {
@@ -30,15 +31,17 @@ export default {
             state.image = payload.image;
             state.followers = payload.followers;
             state.externalUrls = payload.externalUrls;
+            state.loaded = true;
         }
     },
 
     actions : {
-        getData({commit, dispatch, rootState, rootGetters}) {
+        getData({state, commit, dispatch, rootState, rootGetters}) {
 
             return dispatch('request', {
                 service : rootState.api[rootGetters.api].account(),
                 animateProcess : false,
+                loaded : state.loaded,
                 successCallback : (response) => {
                     console.log({accountGetData : response});
 

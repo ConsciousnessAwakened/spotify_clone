@@ -13,6 +13,11 @@ export let generic = {
 
         return new Promise((resolve, reject)=>{
 
+            if (payload.loaded) {
+                resolve(true);
+                return false;
+            }
+
             if (_.get(payload, 'animateProcess', true)) {
                 commit('stateProcess', true);
             }
@@ -155,7 +160,7 @@ export default {
             animateProcess : false,
             successCallback : (response) => {
                 if (response.data['isSuccessful']){
-                    state.inertia.get('/play');
+                    state.inertia.get('/browse');
                 }
             }
         });

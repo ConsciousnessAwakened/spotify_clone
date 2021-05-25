@@ -19,9 +19,9 @@ export default {
             accountUrl : 'accountUrl',
             profileImage : 'image'
         }),
-        ...mapGetters('featured', {
-            featured : 'featured',
-            newRelease : 'newRelease'
+        ...mapGetters('shelf', {
+            spotifyFeatured : 'spotifyFeatured',
+            spotifyNewRelease : 'spotifyNewRelease'
         })
     },
 
@@ -43,7 +43,7 @@ export default {
         ...mapActions('account',{
             getAccount : 'getData'
         }),
-        ...mapActions('featured',[
+        ...mapActions('shelf',[
             'getFeatured',
             'getNewReleases'
         ])

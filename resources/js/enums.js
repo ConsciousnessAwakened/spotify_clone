@@ -30,7 +30,7 @@ window.SCREEN_WIDTH = {
     XXL : 1536
 }
 
-window.FEATURE_TYPE = {
+window.SHELF_TYPE = {
     PEEK : 0,
     FULL : 1,
 }

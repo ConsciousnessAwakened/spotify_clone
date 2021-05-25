@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: postcss
+    versions:
+    - 8.2.10
+    - 8.2.12
+  - dependency-name: "@inertiajs/inertia-vue"
+    versions:
+    - 0.5.11
+  - dependency-name: "@inertiajs/inertia"
+    versions:
+    - 0.8.6

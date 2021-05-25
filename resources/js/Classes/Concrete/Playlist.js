@@ -9,5 +9,7 @@ export default class Playlist {
         this.tracks = args.tracks || null;
         this.owner = args.owner || null;
         this.type = "playlist";
+
+        this.link = args.link || null;
     }
 }
